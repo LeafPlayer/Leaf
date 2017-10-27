@@ -1,0 +1,5 @@
+module libmpv {
+    header "include/mpv/client.h"
+    header "include/mpv/opengl_cb.h"
+    export *
+}

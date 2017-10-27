@@ -1,0 +1,1072 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01EA8B65E2B7AE9FF785F0F7 /* (null) in Headers */ = {isa = PBXBuildFile; };
+		091799C2BCF8D7C91EC45BEA /* Sparkle.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = A1510DA0DFADAA8B82394026 /* Sparkle.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0C21B8F2833C3AE90346A086 /* libbluray.2.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 2A973D46DEC9466FC7F94DAB /* libbluray.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0E7862236312AD2A54B53650 /* libx264.148.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 766FB41EBE07C11B502D6B5F /* libx264.148.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1022DB4C1FB5D90700343448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1022DB4E1FB5D90700343448 /* InfoPlist.strings */; };
+		10252A261FBED5E500011EC5 /* MPV+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10252A251FBED5E500011EC5 /* MPV+Extension.swift */; };
+		1041B3F11FBBF02B0061B339 /* MPV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B3F01FBBF02B0061B339 /* MPV.swift */; };
+		104DB2EE1FBAEB0600A0C489 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2ED1FBAEB0600A0C489 /* Player.swift */; };
+		104F91621FBE8CAA00E33F02 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F91611FBE8CAA00E33F02 /* Command.swift */; };
+		106C542D1FA329D800FA6CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C542C1FA329D800FA6CB9 /* AppDelegate.swift */; };
+		106C542F1FA329D800FA6CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106C542E1FA329D800FA6CB9 /* Assets.xcassets */; };
+		106C543B1FA32BEA00FA6CB9 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C543A1FA32BEA00FA6CB9 /* Application.swift */; };
+		106C543D1FA32C2B00FA6CB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C543C1FA32C2B00FA6CB9 /* main.swift */; };
+		106C54401FA32D4400FA6CB9 /* NSWindows+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C543F1FA32D4400FA6CB9 /* NSWindows+Ext.swift */; };
+		106C54431FA32D8E00FA6CB9 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C54421FA32D8E00FA6CB9 /* IntroVC.swift */; };
+		106C54451FA32E1200FA6CB9 /* WindowControlButtonsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C54441FA32E1200FA6CB9 /* WindowControlButtonsGroup.swift */; };
+		106C54481FA32F6300FA6CB9 /* NSSImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C54471FA32F6300FA6CB9 /* NSSImage+Ext.swift */; };
+		106C544A1FA3311600FA6CB9 /* NSFlipVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C54491FA3311600FA6CB9 /* NSFlipVisualEffectView.swift */; };
+		106DACD71FAB0009007DC33D /* NSFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106DACD61FAB0009007DC33D /* NSFlipView.swift */; };
+		106DACD91FAB0942007DC33D /* NSBackgourndChangableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106DACD81FAB0942007DC33D /* NSBackgourndChangableButton.swift */; };
+		106DACDB1FAB11C9007DC33D /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106DACDA1FAB11C9007DC33D /* MainMenu.swift */; };
+		106DACDD1FAB163E007DC33D /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106DACDC1FAB163E007DC33D /* Bundle+Ext.swift */; };
+		108FC9E11FC94629004B7175 /* NeedFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FC9E01FC94629004B7175 /* NeedFixed.swift */; };
+		109009231FC670C000969B64 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109009221FC670C000969B64 /* Regex.swift */; };
+		109009261FC6747100969B64 /* (null) in Headers */ = {isa = PBXBuildFile; };
+		109009271FC6747100969B64 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		109009291FC6BCFD00969B64 /* NSWindow+Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109009281FC6BCFD00969B64 /* NSWindow+Player.swift */; };
+		10CAA7161FBABFA900C971C5 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CAA7151FBABFA900C971C5 /* Preference.swift */; };
+		10E92DF81FB2E25500732055 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E92DF71FB2E25500732055 /* DI.swift */; };
+		10FA7EA81FC7C3B900C4CD26 /* CancellableDelayedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA7EA71FC7C3B900C4CD26 /* CancellableDelayedTask.swift */; };
+		121264AC51B45B4A57410E47 /* PMKQuartzCore.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 706A604766125BE4FEA27065 /* PMKQuartzCore.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		141C6131241F38C265809691 /* PIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE779113891856B3F0D2420 /* PIP.framework */; };
+		19431F8D0814C015FA0299CF /* SnapKit.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = D8500DDDCCD7039AF5A191D9 /* SnapKit.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1E12618510C9B8213E593254 /* FFmpegController.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A0C9D875EECA717C5808AA /* FFmpegController.h */; };
+		2049805F9556CDC1103F4A9D /* Gzip.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = ECDB9960C8D2037997E652FE /* Gzip.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		22BF45B01E0F8B482AFD01D3 /* libswscale.4.8.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4630F5884664AD93B80C9648 /* libswscale.4.8.100.dylib */; };
+		23E9994D9847D60C5A362F75 /* libavcodec.57.107.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87CB006D970DA1CADCC6161D /* libavcodec.57.107.100.dylib */; };
+		24E780E49B06A8AA7F4C41BC /* libgraphite2.3.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 1800789881E140C9DB846C32 /* libgraphite2.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		2753A459AEDFC937BDD45E8A /* libavutil.55.78.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A444523745A04650528E577 /* libavutil.55.78.100.dylib */; };
+		2EA08D8A2D60F550F903AD75 /* libharfbuzz.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 69DB6D3C883D9720701C6825 /* libharfbuzz.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3365FB63773DC89F0293806D /* ResourcesManager.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 756B6FEF868BF819F2218B1C /* ResourcesManager.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		351AB3D0550EEFC10E04ECD5 /* PMKQuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF2DD801C399145C8D7E8D /* PMKQuartzCore.framework */; };
+		35B1BA73766E8ED50FAA7CBB /* Just.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 87CFE0B079417D616AA38ACA /* Just.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3787A470F5789AFB079A430F /* FFmpegController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E62C651C93FB783FC7E09B /* FFmpegController.m */; };
+		3C2F6EAEABA3E637B988303F /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2AAA3CAF09A703E2EFAD81 /* Mustache.framework */; };
+		41AFC33EA2CD69D32CEEEC1E /* youtube-dl in 📦 [Copy Executable] */ = {isa = PBXBuildFile; fileRef = 798B9F5EE6E805D2B15F38FB /* youtube-dl */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		42EDAAE7D1A67AC51A575556 /* (null) in Headers */ = {isa = PBXBuildFile; };
+		4311A6BB3D98266A04AF6F65 /* libfribidi.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 26E94085DA1F2A510EFEC577 /* libfribidi.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		43BC4B7A22F087578D9D7249 /* libavdevice.57.10.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4CF69DC9648E3E22461B26 /* libavdevice.57.10.100.dylib */; };
+		47E051B7E8B0DC2C2CB138E2 /* (null) in Headers */ = {isa = PBXBuildFile; };
+		4A2715854E73E102C2CA0A9C /* libswresample.2.9.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = F7757EAE01CDDF21C220D804 /* libswresample.2.9.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		4CAF36CC057D55A91E8AA359 /* input.conf in 📦 [Copy Config] */ = {isa = PBXBuildFile; fileRef = F1072DA7728FA4894CD93A39 /* input.conf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		4D3F6ECC44A0B85AC73DF4E3 /* libmp3lame.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = EE251D4373924469ACDCD24C /* libmp3lame.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		4EB747D3746820770D97E2E5 /* libdvdnav.4.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 67F2D1991C63D044C92EA477 /* libdvdnav.4.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5150ED9C99BC4D87E2072074 /* libavformat.57.83.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = A32351C9F73EBD476E351196 /* libavformat.57.83.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		564E8C0938A5CD7A59196D14 /* libavcodec.57.107.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 7691A0A7A97D0B5A5F40B4CD /* libavcodec.57.107.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		59528C66C1841987B2FB3D7C /* (null) in Headers */ = {isa = PBXBuildFile; };
+		5B0F728EA5318A986A697DAD /* MPVProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1F457A191AC82D25CDBAF9 /* MPVProperty.swift */; };
+		5C1EC74CFF83FB240E22D3F9 /* libglib-2.0.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = D9DF7E862FA352E57C42751A /* libglib-2.0.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5D6664CC2433CA2CC9A41EE4 /* libavformat.57.83.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6BD6FB043699315049D29E /* libavformat.57.83.100.dylib */; };
+		65FAE984A1DDBBAA3034140F /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F703BE62FD84FC4E0DB2859 /* AEXML.framework */; };
+		66D585B1326891CA137F7FEE /* MASPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BD649A14CBE03703366CE9 /* MASPreferences.framework */; };
+		68E5FC7C18E6EAA4FEBAAA6F /* libdvdread.4.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 05E526493BCCF60FB128FF39 /* libdvdread.4.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6CCB403024A2FDFE85C4690A /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6F6924E97D041CBDB7011BF4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C868BF9DEEB2A0198C67311 /* Sparkle.framework */; };
+		71F1FA591B379BF0B4B6D7AF /* PromiseKit.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 17442ECF8B610DE8A57068A7 /* PromiseKit.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		74D5C23F326A9A739AE481AC /* liblua.5.2.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = EA396F29B9FAA99845B76EE7 /* liblua.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7CBC3F6A5C61213EB29B8436 /* PMKFoundation.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 4C832A038B62ABDC47A3925A /* PMKFoundation.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		821DC8FB3F3178B2FA67F59F /* AEXML.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 23B80B482D2FD0B7C5121085 /* AEXML.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8D64C0A98F4BFD0B6AD15717 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9B07E4D30CEBD2CA4D29C9 /* PMKFoundation.framework */; };
+		8EEEA41A46A4FFB4885F9AEE /* libavresample.3.7.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 698597CD4911A711FCEEF930 /* libavresample.3.7.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8F79927A9225D53DD42B2C12 /* MPVOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E819BA1FEC08985D779FF766 /* MPVOption.swift */; };
+		934DC3FFC1CF8DF868C5C709 /* libmpv.1.25.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA7F4D66F41DE5CEACA1D41 /* libmpv.1.25.0.dylib */; };
+		9363465128A95AECEC2EFD64 /* libass.9.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 4390F741EE4D508BF146D70F /* libass.9.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		94B9B92E5E5E98521FF8890D /* libavutil.55.78.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = F13356691794289FDA67D23B /* libavutil.55.78.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		9F5DA70185A9D13AB8D19225 /* libswscale.4.8.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = D77A21AEA34EF4112E205CB0 /* libswscale.4.8.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A1BC81B8214DBBAEFCCBA355 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7461255928E014F74E42030 /* PromiseKit.framework */; };
+		A616151C3822B75A35ADF02E /* (null) in Headers */ = {isa = PBXBuildFile; };
+		AD4F9090A6B7FE0488E49C01 /* Gzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38952C7F7A4910CB091158A9 /* Gzip.framework */; };
+		AE5C5CF5A5469C0587790167 /* libavfilter.6.107.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 1BD0717E5EF1CD3595EDD675 /* libavfilter.6.107.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B23FA29EC394E76C62FC3D24 /* ResourcesManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D67AD8DDF2120F11280AFA8 /* ResourcesManager.framework */; };
+		B8701F5201D2F5C46FFDF4DA /* (null) in Headers */ = {isa = PBXBuildFile; };
+		B977BC0F3930EDD3FCDDF13F /* libjpeg.9.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 7F03C5D95AB05C5702D99B09 /* libjpeg.9.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BD8BAA29CD746CE4CBF9FC2D /* libintl.8.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = F945B3FF415B1218838069AE /* libintl.8.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BE193641F6F79EE90182ED7F /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CE8996DE491202EB4F50B0 /* SnapKit.framework */; };
+		BED1567E178410CB648383E9 /* libfontconfig.1.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 6D7BF588E36295AEF3470B44 /* libfontconfig.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C10824A03BE2FDFE2F2A735F /* libmpv.1.25.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 9FAA5915977B504B8B99B8B4 /* libmpv.1.25.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C2B923D88E62F1731740E8B4 /* (null) in Headers */ = {isa = PBXBuildFile; };
+		C2DD1DB46A584155C5075B50 /* (null) in Headers */ = {isa = PBXBuildFile; };
+		CAF4ED0A0036739E07BB28AE /* FixedFontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A25D866C66E1F39FBC5AF0A /* FixedFontManager.h */; };
+		CBE3D176960FCD797744A3C4 /* libpng16.16.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = FB55BDE10D2FA84D6584CA33 /* libpng16.16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CCB81FBF396BE13BB86DD23A /* iina-default-input.conf in 📦 [Copy Config] */ = {isa = PBXBuildFile; fileRef = C8F199E26046DD95DE80BBF5 /* iina-default-input.conf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CEFC7D39FE5421CD5A2DCDCA /* libuchardet.0.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = D4A8F34E7ECE52368C114FB1 /* libuchardet.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D10C21854BA71D56A908BAF3 /* libavfilter.6.107.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBDBA8130C2CCFA6DF75CA4 /* libavfilter.6.107.100.dylib */; };
+		D19E2768517FF26ACB332DD8 /* libfreetype.6.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = BB503B08E2676A155D388B7A /* libfreetype.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D9182A458F5E03EA8EA140A5 /* vlc-default-input.conf in 📦 [Copy Config] */ = {isa = PBXBuildFile; fileRef = 1284E6D1335FCB6720A71C6D /* vlc-default-input.conf */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		DAC01609681AED5202A7D7C1 /* libavresample.3.7.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 480BB9A57E03DA09261FA858 /* libavresample.3.7.0.dylib */; };
+		E0557A5DA80AEF4A2795B428 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		E12D513A302BF24692AAD24B /* liblcms2.2.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 34C05B4295CC92B7C3AA2555 /* liblcms2.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		E132496C43A5457BEE612A15 /* libswresample.2.9.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1EDD40948F6D21D66BFE403 /* libswresample.2.9.100.dylib */; };
+		E30A082059E5BB88914C356B /* Just.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7819D039591ADD602BE7F3D /* Just.framework */; };
+		E4DB1202CED0A91B082CE957 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		E587EEDF5A424A52F3FE7A02 /* libpostproc.54.7.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 3679CC9037A770175F250767 /* libpostproc.54.7.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		E67BE6B98CB117C52DF53D64 /* FixedFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E5FF804AF966512A9A97EC /* FixedFontManager.m */; };
+		E9718ECB267AB5F86F11758B /* (null) in Headers */ = {isa = PBXBuildFile; };
+		EC3CEF07FF63C9F378A44F84 /* MASPreferences.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = EB0ED67FE98A43004FBE2F2D /* MASPreferences.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EED122C810A7A55366520709 /* libavdevice.57.10.100.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 2A69512161E61A73E6F20C19 /* libavdevice.57.10.100.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F80AAF9108FEA4328B927937 /* Mustache.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = 659DAF55016BD4D6B53C1169 /* Mustache.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FA200292D51F65AC583981FF /* libdvdcss.2.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 037F62DF1E6D54B085CD5C68 /* libdvdcss.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FAE578DBA0AC6F319BF64355 /* libpcre.1.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = D87A387F03F7CBD1AB032DA3 /* libpcre.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FF341C6DA4A7364600CA1FC9 /* (null) in Headers */ = {isa = PBXBuildFile; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0D174593ECC1F5E44DBBB20C /* 📦 [Copy Executable] */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				41AFC33EA2CD69D32CEEEC1E /* youtube-dl in 📦 [Copy Executable] */,
+			);
+			name = "📦 [Copy Executable]";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FED44FEAB9F0CE3C28B28E6 /* 📦 [Copy Config] */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = config;
+			dstSubfolderSpec = 7;
+			files = (
+				D9182A458F5E03EA8EA140A5 /* vlc-default-input.conf in 📦 [Copy Config] */,
+				4CAF36CC057D55A91E8AA359 /* input.conf in 📦 [Copy Config] */,
+				CCB81FBF396BE13BB86DD23A /* iina-default-input.conf in 📦 [Copy Config] */,
+			);
+			name = "📦 [Copy Config]";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87ECAA844522EB3E55444ADB /* 📦 [Copy Lua Scripts] */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "📦 [Copy Lua Scripts]";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E27506F213E66D8219DD79 /* 📦 [Copy Framework dSYM] */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				821DC8FB3F3178B2FA67F59F /* AEXML.dSYM in 📦 [Copy Framework dSYM] */,
+				3365FB63773DC89F0293806D /* ResourcesManager.dSYM in 📦 [Copy Framework dSYM] */,
+				71F1FA591B379BF0B4B6D7AF /* PromiseKit.dSYM in 📦 [Copy Framework dSYM] */,
+				7CBC3F6A5C61213EB29B8436 /* PMKFoundation.dSYM in 📦 [Copy Framework dSYM] */,
+				2049805F9556CDC1103F4A9D /* Gzip.dSYM in 📦 [Copy Framework dSYM] */,
+				F80AAF9108FEA4328B927937 /* Mustache.dSYM in 📦 [Copy Framework dSYM] */,
+				19431F8D0814C015FA0299CF /* SnapKit.dSYM in 📦 [Copy Framework dSYM] */,
+				091799C2BCF8D7C91EC45BEA /* Sparkle.dSYM in 📦 [Copy Framework dSYM] */,
+				EC3CEF07FF63C9F378A44F84 /* MASPreferences.dSYM in 📦 [Copy Framework dSYM] */,
+				35B1BA73766E8ED50FAA7CBB /* Just.dSYM in 📦 [Copy Framework dSYM] */,
+				121264AC51B45B4A57410E47 /* PMKQuartzCore.dSYM in 📦 [Copy Framework dSYM] */,
+			);
+			name = "📦 [Copy Framework dSYM]";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FA7B0AE849E383898A93A5 /* 📦 [Copy Dylibs] */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FA200292D51F65AC583981FF /* libdvdcss.2.dylib in 📦 [Copy Dylibs] */,
+				FAE578DBA0AC6F319BF64355 /* libpcre.1.dylib in 📦 [Copy Dylibs] */,
+				74D5C23F326A9A739AE481AC /* liblua.5.2.dylib in 📦 [Copy Dylibs] */,
+				24E780E49B06A8AA7F4C41BC /* libgraphite2.3.dylib in 📦 [Copy Dylibs] */,
+				94B9B92E5E5E98521FF8890D /* libavutil.55.78.100.dylib in 📦 [Copy Dylibs] */,
+				C10824A03BE2FDFE2F2A735F /* libmpv.1.25.0.dylib in 📦 [Copy Dylibs] */,
+				8EEEA41A46A4FFB4885F9AEE /* libavresample.3.7.0.dylib in 📦 [Copy Dylibs] */,
+				5C1EC74CFF83FB240E22D3F9 /* libglib-2.0.0.dylib in 📦 [Copy Dylibs] */,
+				EED122C810A7A55366520709 /* libavdevice.57.10.100.dylib in 📦 [Copy Dylibs] */,
+				E12D513A302BF24692AAD24B /* liblcms2.2.dylib in 📦 [Copy Dylibs] */,
+				CBE3D176960FCD797744A3C4 /* libpng16.16.dylib in 📦 [Copy Dylibs] */,
+				AE5C5CF5A5469C0587790167 /* libavfilter.6.107.100.dylib in 📦 [Copy Dylibs] */,
+				4D3F6ECC44A0B85AC73DF4E3 /* libmp3lame.0.dylib in 📦 [Copy Dylibs] */,
+				D19E2768517FF26ACB332DD8 /* libfreetype.6.dylib in 📦 [Copy Dylibs] */,
+				E587EEDF5A424A52F3FE7A02 /* libpostproc.54.7.100.dylib in 📦 [Copy Dylibs] */,
+				564E8C0938A5CD7A59196D14 /* libavcodec.57.107.100.dylib in 📦 [Copy Dylibs] */,
+				5150ED9C99BC4D87E2072074 /* libavformat.57.83.100.dylib in 📦 [Copy Dylibs] */,
+				2EA08D8A2D60F550F903AD75 /* libharfbuzz.0.dylib in 📦 [Copy Dylibs] */,
+				68E5FC7C18E6EAA4FEBAAA6F /* libdvdread.4.dylib in 📦 [Copy Dylibs] */,
+				4EB747D3746820770D97E2E5 /* libdvdnav.4.dylib in 📦 [Copy Dylibs] */,
+				CEFC7D39FE5421CD5A2DCDCA /* libuchardet.0.dylib in 📦 [Copy Dylibs] */,
+				B977BC0F3930EDD3FCDDF13F /* libjpeg.9.dylib in 📦 [Copy Dylibs] */,
+				BD8BAA29CD746CE4CBF9FC2D /* libintl.8.dylib in 📦 [Copy Dylibs] */,
+				4311A6BB3D98266A04AF6F65 /* libfribidi.0.dylib in 📦 [Copy Dylibs] */,
+				BED1567E178410CB648383E9 /* libfontconfig.1.dylib in 📦 [Copy Dylibs] */,
+				9363465128A95AECEC2EFD64 /* libass.9.dylib in 📦 [Copy Dylibs] */,
+				4A2715854E73E102C2CA0A9C /* libswresample.2.9.100.dylib in 📦 [Copy Dylibs] */,
+				0C21B8F2833C3AE90346A086 /* libbluray.2.dylib in 📦 [Copy Dylibs] */,
+				0E7862236312AD2A54B53650 /* libx264.148.dylib in 📦 [Copy Dylibs] */,
+				9F5DA70185A9D13AB8D19225 /* libswscale.4.8.100.dylib in 📦 [Copy Dylibs] */,
+			);
+			name = "📦 [Copy Dylibs]";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		037F62DF1E6D54B085CD5C68 /* libdvdcss.2.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libdvdcss.2.dylib; path = dependencies/lib/libdvdcss.2.dylib; sourceTree = "<group>"; };
+		05E526493BCCF60FB128FF39 /* libdvdread.4.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libdvdread.4.dylib; path = dependencies/lib/libdvdread.4.dylib; sourceTree = "<group>"; };
+		0A6BD6FB043699315049D29E /* libavformat.57.83.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.57.83.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavformat.57.83.100.dylib; sourceTree = "<group>"; };
+		0D67AD8DDF2120F11280AFA8 /* ResourcesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResourcesManager.framework; path = dependencies/Carthage/Build/Mac/ResourcesManager.framework; sourceTree = "<group>"; };
+		1022DB4D1FB5D90700343448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB4F1FB5D90A00343448 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB501FB5D90C00343448 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB511FB5D90D00343448 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB521FB5D90E00343448 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1022DB531FB5D91500343448 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1022DB541FB5D94200343448 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB551FB5D94700343448 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB561FB5D94A00343448 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB571FB5D94C00343448 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB581FB5D94F00343448 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB591FB5D95000343448 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1022DB5A1FB5D95100343448 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		10252A251FBED5E500011EC5 /* MPV+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPV+Extension.swift"; sourceTree = "<group>"; };
+		1041B3F01FBBF02B0061B339 /* MPV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPV.swift; sourceTree = "<group>"; };
+		104DB2ED1FBAEB0600A0C489 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		104F91611FBE8CAA00E33F02 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		106C54291FA329D800FA6CB9 /* Leaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		106C542C1FA329D800FA6CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		106C542E1FA329D800FA6CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		106C543A1FA32BEA00FA6CB9 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		106C543C1FA32C2B00FA6CB9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		106C543F1FA32D4400FA6CB9 /* NSWindows+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindows+Ext.swift"; sourceTree = "<group>"; };
+		106C54421FA32D8E00FA6CB9 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
+		106C54441FA32E1200FA6CB9 /* WindowControlButtonsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowControlButtonsGroup.swift; sourceTree = "<group>"; };
+		106C54471FA32F6300FA6CB9 /* NSSImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSImage+Ext.swift"; sourceTree = "<group>"; };
+		106C54491FA3311600FA6CB9 /* NSFlipVisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFlipVisualEffectView.swift; sourceTree = "<group>"; };
+		106DACD61FAB0009007DC33D /* NSFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFlipView.swift; sourceTree = "<group>"; };
+		106DACD81FAB0942007DC33D /* NSBackgourndChangableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBackgourndChangableButton.swift; sourceTree = "<group>"; };
+		106DACDA1FAB11C9007DC33D /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		106DACDC1FAB163E007DC33D /* Bundle+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Ext.swift"; sourceTree = "<group>"; };
+		108FC9E01FC94629004B7175 /* NeedFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedFixed.swift; sourceTree = "<group>"; };
+		109009221FC670C000969B64 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		109009281FC6BCFD00969B64 /* NSWindow+Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Player.swift"; sourceTree = "<group>"; };
+		10ABAC9A1FB5F4B800DEA726 /* Leaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Leaf-Bridging-Header.h"; sourceTree = "<group>"; };
+		10B0DDC71FA871D700D8B8F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10B0DDCC1FA8733100D8B8F7 /* Leaf.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Leaf.xcconfig; sourceTree = "<group>"; };
+		10CAA7151FBABFA900C971C5 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		10E92DF71FB2E25500732055 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
+		10FA7EA71FC7C3B900C4CD26 /* CancellableDelayedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableDelayedTask.swift; sourceTree = "<group>"; };
+		1284E6D1335FCB6720A71C6D /* vlc-default-input.conf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "vlc-default-input.conf"; path = "dependencies/config/vlc-default-input.conf"; sourceTree = "<group>"; };
+		17442ECF8B610DE8A57068A7 /* PromiseKit.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = PromiseKit.dSYM; path = dependencies/Carthage/Build/Mac/PromiseKit.dSYM; sourceTree = "<group>"; };
+		1800789881E140C9DB846C32 /* libgraphite2.3.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libgraphite2.3.dylib; path = dependencies/lib/libgraphite2.3.dylib; sourceTree = "<group>"; };
+		1BD0717E5EF1CD3595EDD675 /* libavfilter.6.107.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.6.107.100.dylib; path = dependencies/lib/libavfilter.6.107.100.dylib; sourceTree = "<group>"; };
+		1EBDBA8130C2CCFA6DF75CA4 /* libavfilter.6.107.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.6.107.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavfilter.6.107.100.dylib; sourceTree = "<group>"; };
+		20E5FF804AF966512A9A97EC /* FixedFontManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FixedFontManager.m; path = dependencies/oc/FixedFontManager.m; sourceTree = "<group>"; };
+		23B80B482D2FD0B7C5121085 /* AEXML.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = AEXML.dSYM; path = dependencies/Carthage/Build/Mac/AEXML.dSYM; sourceTree = "<group>"; };
+		26E94085DA1F2A510EFEC577 /* libfribidi.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libfribidi.0.dylib; path = dependencies/lib/libfribidi.0.dylib; sourceTree = "<group>"; };
+		2A444523745A04650528E577 /* libavutil.55.78.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.55.78.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavutil.55.78.100.dylib; sourceTree = "<group>"; };
+		2A69512161E61A73E6F20C19 /* libavdevice.57.10.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavdevice.57.10.100.dylib; path = dependencies/lib/libavdevice.57.10.100.dylib; sourceTree = "<group>"; };
+		2A973D46DEC9466FC7F94DAB /* libbluray.2.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libbluray.2.dylib; path = dependencies/lib/libbluray.2.dylib; sourceTree = "<group>"; };
+		30E62C651C93FB783FC7E09B /* FFmpegController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FFmpegController.m; path = dependencies/oc/FFmpegController.m; sourceTree = "<group>"; };
+		34C05B4295CC92B7C3AA2555 /* liblcms2.2.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = liblcms2.2.dylib; path = dependencies/lib/liblcms2.2.dylib; sourceTree = "<group>"; };
+		3679CC9037A770175F250767 /* libpostproc.54.7.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libpostproc.54.7.100.dylib; path = dependencies/lib/libpostproc.54.7.100.dylib; sourceTree = "<group>"; };
+		38952C7F7A4910CB091158A9 /* Gzip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gzip.framework; path = dependencies/Carthage/Build/Mac/Gzip.framework; sourceTree = "<group>"; };
+		3C868BF9DEEB2A0198C67311 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = dependencies/Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		4390F741EE4D508BF146D70F /* libass.9.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libass.9.dylib; path = dependencies/lib/libass.9.dylib; sourceTree = "<group>"; };
+		4630F5884664AD93B80C9648 /* libswscale.4.8.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.4.8.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libswscale.4.8.100.dylib; sourceTree = "<group>"; };
+		480BB9A57E03DA09261FA858 /* libavresample.3.7.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavresample.3.7.0.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavresample.3.7.0.dylib; sourceTree = "<group>"; };
+		4C832A038B62ABDC47A3925A /* PMKFoundation.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = PMKFoundation.dSYM; path = dependencies/Carthage/Build/Mac/PMKFoundation.dSYM; sourceTree = "<group>"; };
+		5A25D866C66E1F39FBC5AF0A /* FixedFontManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FixedFontManager.h; path = dependencies/oc/FixedFontManager.h; sourceTree = "<group>"; };
+		5F703BE62FD84FC4E0DB2859 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = dependencies/Carthage/Build/Mac/AEXML.framework; sourceTree = "<group>"; };
+		659DAF55016BD4D6B53C1169 /* Mustache.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = Mustache.dSYM; path = dependencies/Carthage/Build/Mac/Mustache.dSYM; sourceTree = "<group>"; };
+		67F2D1991C63D044C92EA477 /* libdvdnav.4.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libdvdnav.4.dylib; path = dependencies/lib/libdvdnav.4.dylib; sourceTree = "<group>"; };
+		698597CD4911A711FCEEF930 /* libavresample.3.7.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavresample.3.7.0.dylib; path = dependencies/lib/libavresample.3.7.0.dylib; sourceTree = "<group>"; };
+		69DB6D3C883D9720701C6825 /* libharfbuzz.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libharfbuzz.0.dylib; path = dependencies/lib/libharfbuzz.0.dylib; sourceTree = "<group>"; };
+		6D7BF588E36295AEF3470B44 /* libfontconfig.1.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libfontconfig.1.dylib; path = dependencies/lib/libfontconfig.1.dylib; sourceTree = "<group>"; };
+		6E1F457A191AC82D25CDBAF9 /* MPVProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MPVProperty.swift; path = dependencies/generated/MPVProperty.swift; sourceTree = "<group>"; };
+		706A604766125BE4FEA27065 /* PMKQuartzCore.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = PMKQuartzCore.dSYM; path = dependencies/Carthage/Build/Mac/PMKQuartzCore.dSYM; sourceTree = "<group>"; };
+		756B6FEF868BF819F2218B1C /* ResourcesManager.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = ResourcesManager.dSYM; path = dependencies/Carthage/Build/Mac/ResourcesManager.dSYM; sourceTree = "<group>"; };
+		766FB41EBE07C11B502D6B5F /* libx264.148.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libx264.148.dylib; path = dependencies/lib/libx264.148.dylib; sourceTree = "<group>"; };
+		7691A0A7A97D0B5A5F40B4CD /* libavcodec.57.107.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.57.107.100.dylib; path = dependencies/lib/libavcodec.57.107.100.dylib; sourceTree = "<group>"; };
+		76BD649A14CBE03703366CE9 /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASPreferences.framework; path = dependencies/Carthage/Build/Mac/MASPreferences.framework; sourceTree = "<group>"; };
+		798B9F5EE6E805D2B15F38FB /* youtube-dl */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "youtube-dl"; path = "dependencies/executable/youtube-dl"; sourceTree = "<group>"; };
+		7C4CF69DC9648E3E22461B26 /* libavdevice.57.10.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavdevice.57.10.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavdevice.57.10.100.dylib; sourceTree = "<group>"; };
+		7F03C5D95AB05C5702D99B09 /* libjpeg.9.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.9.dylib; path = dependencies/lib/libjpeg.9.dylib; sourceTree = "<group>"; };
+		82CE8996DE491202EB4F50B0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = dependencies/Carthage/Build/Mac/SnapKit.framework; sourceTree = "<group>"; };
+		87CB006D970DA1CADCC6161D /* libavcodec.57.107.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.57.107.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavcodec.57.107.100.dylib; sourceTree = "<group>"; };
+		87CFE0B079417D616AA38ACA /* Just.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = Just.dSYM; path = dependencies/Carthage/Build/Mac/Just.dSYM; sourceTree = "<group>"; };
+		98A0C9D875EECA717C5808AA /* FFmpegController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FFmpegController.h; path = dependencies/oc/FFmpegController.h; sourceTree = "<group>"; };
+		9CE779113891856B3F0D2420 /* PIP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PIP.framework; path = dependencies/framework/PIP.framework; sourceTree = "<group>"; };
+		9D9B07E4D30CEBD2CA4D29C9 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = dependencies/Carthage/Build/Mac/PMKFoundation.framework; sourceTree = "<group>"; };
+		9FAA5915977B504B8B99B8B4 /* libmpv.1.25.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpv.1.25.0.dylib; path = dependencies/lib/libmpv.1.25.0.dylib; sourceTree = "<group>"; };
+		A1510DA0DFADAA8B82394026 /* Sparkle.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = Sparkle.dSYM; path = dependencies/Carthage/Build/Mac/Sparkle.dSYM; sourceTree = "<group>"; };
+		A32351C9F73EBD476E351196 /* libavformat.57.83.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.57.83.100.dylib; path = dependencies/lib/libavformat.57.83.100.dylib; sourceTree = "<group>"; };
+		A7461255928E014F74E42030 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = dependencies/Carthage/Build/Mac/PromiseKit.framework; sourceTree = "<group>"; };
+		A7819D039591ADD602BE7F3D /* Just.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Just.framework; path = dependencies/Carthage/Build/Mac/Just.framework; sourceTree = "<group>"; };
+		BB503B08E2676A155D388B7A /* libfreetype.6.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = dependencies/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
+		BCA7F4D66F41DE5CEACA1D41 /* libmpv.1.25.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpv.1.25.0.dylib; path = ../../../../../../usr/local/opt/mpv/lib/libmpv.1.25.0.dylib; sourceTree = "<group>"; };
+		BD2AAA3CAF09A703E2EFAD81 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = dependencies/Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
+		C8F199E26046DD95DE80BBF5 /* iina-default-input.conf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "iina-default-input.conf"; path = "dependencies/config/iina-default-input.conf"; sourceTree = "<group>"; };
+		D4A8F34E7ECE52368C114FB1 /* libuchardet.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libuchardet.0.dylib; path = dependencies/lib/libuchardet.0.dylib; sourceTree = "<group>"; };
+		D77A21AEA34EF4112E205CB0 /* libswscale.4.8.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.4.8.100.dylib; path = dependencies/lib/libswscale.4.8.100.dylib; sourceTree = "<group>"; };
+		D8500DDDCCD7039AF5A191D9 /* SnapKit.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = SnapKit.dSYM; path = dependencies/Carthage/Build/Mac/SnapKit.dSYM; sourceTree = "<group>"; };
+		D87A387F03F7CBD1AB032DA3 /* libpcre.1.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcre.1.dylib; path = dependencies/lib/libpcre.1.dylib; sourceTree = "<group>"; };
+		D9DF7E862FA352E57C42751A /* libglib-2.0.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = "libglib-2.0.0.dylib"; path = "dependencies/lib/libglib-2.0.0.dylib"; sourceTree = "<group>"; };
+		E1EDD40948F6D21D66BFE403 /* libswresample.2.9.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libswresample.2.9.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libswresample.2.9.100.dylib; sourceTree = "<group>"; };
+		E819BA1FEC08985D779FF766 /* MPVOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MPVOption.swift; path = dependencies/generated/MPVOption.swift; sourceTree = "<group>"; };
+		EA396F29B9FAA99845B76EE7 /* liblua.5.2.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = liblua.5.2.dylib; path = dependencies/lib/liblua.5.2.dylib; sourceTree = "<group>"; };
+		EB0ED67FE98A43004FBE2F2D /* MASPreferences.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = MASPreferences.dSYM; path = dependencies/Carthage/Build/Mac/MASPreferences.dSYM; sourceTree = "<group>"; };
+		EBBF2DD801C399145C8D7E8D /* PMKQuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKQuartzCore.framework; path = dependencies/Carthage/Build/Mac/PMKQuartzCore.framework; sourceTree = "<group>"; };
+		ECDB9960C8D2037997E652FE /* Gzip.dSYM */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.dsym; name = Gzip.dSYM; path = dependencies/Carthage/Build/Mac/Gzip.dSYM; sourceTree = "<group>"; };
+		EE251D4373924469ACDCD24C /* libmp3lame.0.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libmp3lame.0.dylib; path = dependencies/lib/libmp3lame.0.dylib; sourceTree = "<group>"; };
+		F1072DA7728FA4894CD93A39 /* input.conf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = input.conf; path = dependencies/config/input.conf; sourceTree = "<group>"; };
+		F13356691794289FDA67D23B /* libavutil.55.78.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.55.78.100.dylib; path = dependencies/lib/libavutil.55.78.100.dylib; sourceTree = "<group>"; };
+		F7757EAE01CDDF21C220D804 /* libswresample.2.9.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libswresample.2.9.100.dylib; path = dependencies/lib/libswresample.2.9.100.dylib; sourceTree = "<group>"; };
+		F945B3FF415B1218838069AE /* libintl.8.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libintl.8.dylib; path = dependencies/lib/libintl.8.dylib; sourceTree = "<group>"; };
+		FB55BDE10D2FA84D6584CA33 /* libpng16.16.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = dependencies/lib/libpng16.16.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		106C54261FA329D800FA6CB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934DC3FFC1CF8DF868C5C709 /* libmpv.1.25.0.dylib in Frameworks */,
+				2753A459AEDFC937BDD45E8A /* libavutil.55.78.100.dylib in Frameworks */,
+				DAC01609681AED5202A7D7C1 /* libavresample.3.7.0.dylib in Frameworks */,
+				43BC4B7A22F087578D9D7249 /* libavdevice.57.10.100.dylib in Frameworks */,
+				D10C21854BA71D56A908BAF3 /* libavfilter.6.107.100.dylib in Frameworks */,
+				23E9994D9847D60C5A362F75 /* libavcodec.57.107.100.dylib in Frameworks */,
+				5D6664CC2433CA2CC9A41EE4 /* libavformat.57.83.100.dylib in Frameworks */,
+				E132496C43A5457BEE612A15 /* libswresample.2.9.100.dylib in Frameworks */,
+				22BF45B01E0F8B482AFD01D3 /* libswscale.4.8.100.dylib in Frameworks */,
+				141C6131241F38C265809691 /* PIP.framework in Frameworks */,
+				8D64C0A98F4BFD0B6AD15717 /* PMKFoundation.framework in Frameworks */,
+				65FAE984A1DDBBAA3034140F /* AEXML.framework in Frameworks */,
+				6F6924E97D041CBDB7011BF4 /* Sparkle.framework in Frameworks */,
+				E30A082059E5BB88914C356B /* Just.framework in Frameworks */,
+				AD4F9090A6B7FE0488E49C01 /* Gzip.framework in Frameworks */,
+				3C2F6EAEABA3E637B988303F /* Mustache.framework in Frameworks */,
+				A1BC81B8214DBBAEFCCBA355 /* PromiseKit.framework in Frameworks */,
+				66D585B1326891CA137F7FEE /* MASPreferences.framework in Frameworks */,
+				BE193641F6F79EE90182ED7F /* SnapKit.framework in Frameworks */,
+				351AB3D0550EEFC10E04ECD5 /* PMKQuartzCore.framework in Frameworks */,
+				B23FA29EC394E76C62FC3D24 /* ResourcesManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		002BD3950E13FB0E81100679 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				993F6D13669D71DD293B6FEE /* frameworks */,
+				54BA5E125D388D3E62432F1E /* dylibs */,
+				EAEC084C1E1B214FD189B8C8 /* executable */,
+				0B14956AE578AA7A9530BC3C /* config */,
+				97172FE44EAC487642C7F33D /* lua */,
+				7B7ED4C5476351DDBF0035CC /* generated */,
+				D215C647B676EA844442589B /* dsym */,
+				E27C5576075C6EF3D6478D50 /* oc */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		0B14956AE578AA7A9530BC3C /* config */ = {
+			isa = PBXGroup;
+			children = (
+				1284E6D1335FCB6720A71C6D /* vlc-default-input.conf */,
+				F1072DA7728FA4894CD93A39 /* input.conf */,
+				C8F199E26046DD95DE80BBF5 /* iina-default-input.conf */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		10252A231FBED57300011EC5 /* MicroFramework */ = {
+			isa = PBXGroup;
+			children = (
+				10252A241FBED59400011EC5 /* MPV */,
+			);
+			path = MicroFramework;
+			sourceTree = "<group>";
+		};
+		10252A241FBED59400011EC5 /* MPV */ = {
+			isa = PBXGroup;
+			children = (
+				1041B3F01FBBF02B0061B339 /* MPV.swift */,
+				10CAA7151FBABFA900C971C5 /* Preference.swift */,
+				104F91611FBE8CAA00E33F02 /* Command.swift */,
+				10252A251FBED5E500011EC5 /* MPV+Extension.swift */,
+				109009221FC670C000969B64 /* Regex.swift */,
+			);
+			path = MPV;
+			sourceTree = "<group>";
+		};
+		106C54201FA329D800FA6CB9 = {
+			isa = PBXGroup;
+			children = (
+				106C542B1FA329D800FA6CB9 /* Leaf */,
+				106C542A1FA329D800FA6CB9 /* Products */,
+				002BD3950E13FB0E81100679 /* Dependencies */,
+			);
+			sourceTree = "<group>";
+		};
+		106C542A1FA329D800FA6CB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				106C54291FA329D800FA6CB9 /* Leaf.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		106C542B1FA329D800FA6CB9 /* Leaf */ = {
+			isa = PBXGroup;
+			children = (
+				10252A231FBED57300011EC5 /* MicroFramework */,
+				106C542C1FA329D800FA6CB9 /* AppDelegate.swift */,
+				106C543A1FA32BEA00FA6CB9 /* Application.swift */,
+				106DACDA1FAB11C9007DC33D /* MainMenu.swift */,
+				106C543C1FA32C2B00FA6CB9 /* main.swift */,
+				108FC9E01FC94629004B7175 /* NeedFixed.swift */,
+				106C542E1FA329D800FA6CB9 /* Assets.xcassets */,
+				10B0DDC61FA871C300D8B8F7 /* Support */,
+				106C543E1FA32D3000FA6CB9 /* Extensions */,
+				106C54461FA32E1800FA6CB9 /* UIComponents */,
+				106C54411FA32D7700FA6CB9 /* ViewController */,
+			);
+			path = Leaf;
+			sourceTree = "<group>";
+		};
+		106C543E1FA32D3000FA6CB9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				106C543F1FA32D4400FA6CB9 /* NSWindows+Ext.swift */,
+				106C54471FA32F6300FA6CB9 /* NSSImage+Ext.swift */,
+				106DACDC1FAB163E007DC33D /* Bundle+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		106C54411FA32D7700FA6CB9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				106C54421FA32D8E00FA6CB9 /* IntroVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		106C54461FA32E1800FA6CB9 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				10CAA7081FBAA2D400C971C5 /* Video */,
+				106C54441FA32E1200FA6CB9 /* WindowControlButtonsGroup.swift */,
+				106C54491FA3311600FA6CB9 /* NSFlipVisualEffectView.swift */,
+				106DACD61FAB0009007DC33D /* NSFlipView.swift */,
+				106DACD81FAB0942007DC33D /* NSBackgourndChangableButton.swift */,
+				10E92DF71FB2E25500732055 /* DI.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		10B0DDC61FA871C300D8B8F7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				10ABAC9A1FB5F4B800DEA726 /* Leaf-Bridging-Header.h */,
+				10B0DDCC1FA8733100D8B8F7 /* Leaf.xcconfig */,
+				10B0DDC71FA871D700D8B8F7 /* Info.plist */,
+				1022DB4E1FB5D90700343448 /* InfoPlist.strings */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		10CAA7081FBAA2D400C971C5 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				109009281FC6BCFD00969B64 /* NSWindow+Player.swift */,
+				104DB2ED1FBAEB0600A0C489 /* Player.swift */,
+				10FA7EA71FC7C3B900C4CD26 /* CancellableDelayedTask.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		54BA5E125D388D3E62432F1E /* dylibs */ = {
+			isa = PBXGroup;
+			children = (
+				037F62DF1E6D54B085CD5C68 /* libdvdcss.2.dylib */,
+				D87A387F03F7CBD1AB032DA3 /* libpcre.1.dylib */,
+				EA396F29B9FAA99845B76EE7 /* liblua.5.2.dylib */,
+				1800789881E140C9DB846C32 /* libgraphite2.3.dylib */,
+				F13356691794289FDA67D23B /* libavutil.55.78.100.dylib */,
+				9FAA5915977B504B8B99B8B4 /* libmpv.1.25.0.dylib */,
+				698597CD4911A711FCEEF930 /* libavresample.3.7.0.dylib */,
+				D9DF7E862FA352E57C42751A /* libglib-2.0.0.dylib */,
+				2A69512161E61A73E6F20C19 /* libavdevice.57.10.100.dylib */,
+				34C05B4295CC92B7C3AA2555 /* liblcms2.2.dylib */,
+				FB55BDE10D2FA84D6584CA33 /* libpng16.16.dylib */,
+				1BD0717E5EF1CD3595EDD675 /* libavfilter.6.107.100.dylib */,
+				EE251D4373924469ACDCD24C /* libmp3lame.0.dylib */,
+				BB503B08E2676A155D388B7A /* libfreetype.6.dylib */,
+				3679CC9037A770175F250767 /* libpostproc.54.7.100.dylib */,
+				7691A0A7A97D0B5A5F40B4CD /* libavcodec.57.107.100.dylib */,
+				A32351C9F73EBD476E351196 /* libavformat.57.83.100.dylib */,
+				69DB6D3C883D9720701C6825 /* libharfbuzz.0.dylib */,
+				05E526493BCCF60FB128FF39 /* libdvdread.4.dylib */,
+				67F2D1991C63D044C92EA477 /* libdvdnav.4.dylib */,
+				D4A8F34E7ECE52368C114FB1 /* libuchardet.0.dylib */,
+				7F03C5D95AB05C5702D99B09 /* libjpeg.9.dylib */,
+				F945B3FF415B1218838069AE /* libintl.8.dylib */,
+				26E94085DA1F2A510EFEC577 /* libfribidi.0.dylib */,
+				6D7BF588E36295AEF3470B44 /* libfontconfig.1.dylib */,
+				4390F741EE4D508BF146D70F /* libass.9.dylib */,
+				F7757EAE01CDDF21C220D804 /* libswresample.2.9.100.dylib */,
+				2A973D46DEC9466FC7F94DAB /* libbluray.2.dylib */,
+				766FB41EBE07C11B502D6B5F /* libx264.148.dylib */,
+				D77A21AEA34EF4112E205CB0 /* libswscale.4.8.100.dylib */,
+				BCA7F4D66F41DE5CEACA1D41 /* libmpv.1.25.0.dylib */,
+				2A444523745A04650528E577 /* libavutil.55.78.100.dylib */,
+				480BB9A57E03DA09261FA858 /* libavresample.3.7.0.dylib */,
+				7C4CF69DC9648E3E22461B26 /* libavdevice.57.10.100.dylib */,
+				1EBDBA8130C2CCFA6DF75CA4 /* libavfilter.6.107.100.dylib */,
+				87CB006D970DA1CADCC6161D /* libavcodec.57.107.100.dylib */,
+				0A6BD6FB043699315049D29E /* libavformat.57.83.100.dylib */,
+				E1EDD40948F6D21D66BFE403 /* libswresample.2.9.100.dylib */,
+				4630F5884664AD93B80C9648 /* libswscale.4.8.100.dylib */,
+			);
+			name = dylibs;
+			sourceTree = "<group>";
+		};
+		7B7ED4C5476351DDBF0035CC /* generated */ = {
+			isa = PBXGroup;
+			children = (
+				E819BA1FEC08985D779FF766 /* MPVOption.swift */,
+				6E1F457A191AC82D25CDBAF9 /* MPVProperty.swift */,
+			);
+			name = generated;
+			sourceTree = "<group>";
+		};
+		97172FE44EAC487642C7F33D /* lua */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = lua;
+			sourceTree = "<group>";
+		};
+		993F6D13669D71DD293B6FEE /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CE779113891856B3F0D2420 /* PIP.framework */,
+				9D9B07E4D30CEBD2CA4D29C9 /* PMKFoundation.framework */,
+				5F703BE62FD84FC4E0DB2859 /* AEXML.framework */,
+				3C868BF9DEEB2A0198C67311 /* Sparkle.framework */,
+				A7819D039591ADD602BE7F3D /* Just.framework */,
+				38952C7F7A4910CB091158A9 /* Gzip.framework */,
+				BD2AAA3CAF09A703E2EFAD81 /* Mustache.framework */,
+				A7461255928E014F74E42030 /* PromiseKit.framework */,
+				76BD649A14CBE03703366CE9 /* MASPreferences.framework */,
+				82CE8996DE491202EB4F50B0 /* SnapKit.framework */,
+				EBBF2DD801C399145C8D7E8D /* PMKQuartzCore.framework */,
+				0D67AD8DDF2120F11280AFA8 /* ResourcesManager.framework */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		D215C647B676EA844442589B /* dsym */ = {
+			isa = PBXGroup;
+			children = (
+				23B80B482D2FD0B7C5121085 /* AEXML.dSYM */,
+				756B6FEF868BF819F2218B1C /* ResourcesManager.dSYM */,
+				17442ECF8B610DE8A57068A7 /* PromiseKit.dSYM */,
+				4C832A038B62ABDC47A3925A /* PMKFoundation.dSYM */,
+				ECDB9960C8D2037997E652FE /* Gzip.dSYM */,
+				659DAF55016BD4D6B53C1169 /* Mustache.dSYM */,
+				D8500DDDCCD7039AF5A191D9 /* SnapKit.dSYM */,
+				A1510DA0DFADAA8B82394026 /* Sparkle.dSYM */,
+				EB0ED67FE98A43004FBE2F2D /* MASPreferences.dSYM */,
+				87CFE0B079417D616AA38ACA /* Just.dSYM */,
+				706A604766125BE4FEA27065 /* PMKQuartzCore.dSYM */,
+			);
+			name = dsym;
+			sourceTree = "<group>";
+		};
+		E27C5576075C6EF3D6478D50 /* oc */ = {
+			isa = PBXGroup;
+			children = (
+				5A25D866C66E1F39FBC5AF0A /* FixedFontManager.h */,
+				98A0C9D875EECA717C5808AA /* FFmpegController.h */,
+				30E62C651C93FB783FC7E09B /* FFmpegController.m */,
+				20E5FF804AF966512A9A97EC /* FixedFontManager.m */,
+			);
+			name = oc;
+			sourceTree = "<group>";
+		};
+		EAEC084C1E1B214FD189B8C8 /* executable */ = {
+			isa = PBXGroup;
+			children = (
+				798B9F5EE6E805D2B15F38FB /* youtube-dl */,
+			);
+			name = executable;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2539C7C97D3A76F99C947760 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				109009261FC6747100969B64 /* (null) in Headers */,
+				FF341C6DA4A7364600CA1FC9 /* (null) in Headers */,
+				C2DD1DB46A584155C5075B50 /* (null) in Headers */,
+				C2B923D88E62F1731740E8B4 /* (null) in Headers */,
+				A616151C3822B75A35ADF02E /* (null) in Headers */,
+				E9718ECB267AB5F86F11758B /* (null) in Headers */,
+				B8701F5201D2F5C46FFDF4DA /* (null) in Headers */,
+				01EA8B65E2B7AE9FF785F0F7 /* (null) in Headers */,
+				42EDAAE7D1A67AC51A575556 /* (null) in Headers */,
+				47E051B7E8B0DC2C2CB138E2 /* (null) in Headers */,
+				59528C66C1841987B2FB3D7C /* (null) in Headers */,
+				CAF4ED0A0036739E07BB28AE /* FixedFontManager.h in Headers */,
+				1E12618510C9B8213E593254 /* FFmpegController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		106C54281FA329D800FA6CB9 /* Leaf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 106C54371FA329D800FA6CB9 /* Build configuration list for PBXNativeTarget "Leaf" */;
+			buildPhases = (
+				106C54251FA329D800FA6CB9 /* Sources */,
+				106C54261FA329D800FA6CB9 /* Frameworks */,
+				106C54271FA329D800FA6CB9 /* Resources */,
+				2539C7C97D3A76F99C947760 /* Headers */,
+				5993C51388072B3F1D137CD8 /* 📦 [Copy symlinks] */,
+				E6702B4285252657D5900AB1 /* 📦 [Auto Add Xcode Build] */,
+				C3FA7B0AE849E383898A93A5 /* 📦 [Copy Dylibs] */,
+				69EABB278855CF3DECE35781 /* 📦 [Copy Framework] */,
+				B2E27506F213E66D8219DD79 /* 📦 [Copy Framework dSYM] */,
+				164DD8876516DC3DC4FDBB7D /* 📦 [Copy Dylib Symlinks] */,
+				0D174593ECC1F5E44DBBB20C /* 📦 [Copy Executable] */,
+				5FED44FEAB9F0CE3C28B28E6 /* 📦 [Copy Config] */,
+				87ECAA844522EB3E55444ADB /* 📦 [Copy Lua Scripts] */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Leaf;
+			productName = Leaf;
+			productReference = 106C54291FA329D800FA6CB9 /* Leaf.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		106C54211FA329D800FA6CB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = lincolnlaw;
+				TargetAttributes = {
+					106C54281FA329D800FA6CB9 = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 106C54241FA329D800FA6CB9 /* Build configuration list for PBXProject "Leaf" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				de,
+				he,
+				ar,
+				el,
+				ja,
+				uk,
+				zh_CN,
+				nb,
+				es,
+				is,
+				sl,
+				pt_BR,
+				da,
+				it,
+				sk,
+				pt_PT,
+				sv,
+				cs,
+				ko,
+				no,
+				tr,
+				pl,
+				zh_TW,
+				ru,
+				fr,
+				fi,
+				nl,
+				th,
+				ro,
+				ca,
+				"zh-Hans",
+				English,
+				"fr-CA",
+				"zh-Hant",
+				hu,
+				"pt-BR",
+				cy,
+				id,
+				pt,
+				"pt-PT",
+			);
+			mainGroup = 106C54201FA329D800FA6CB9;
+			productRefGroup = 106C542A1FA329D800FA6CB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				106C54281FA329D800FA6CB9 /* Leaf */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		106C54271FA329D800FA6CB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106C542F1FA329D800FA6CB9 /* Assets.xcassets in Resources */,
+				1022DB4C1FB5D90700343448 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		164DD8876516DC3DC4FDBB7D /* 📦 [Copy Dylib Symlinks] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 [Copy Dylib Symlinks]";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Copy symlinks:\"\nfor file in \"${SRCROOT}/deps/lib/\"*.dylib; do\n  if [[ -h \"$file\" ]]; then\n    cp -R $file \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/$(basename $file)\"\n  fi\ndone";
+		};
+		5993C51388072B3F1D137CD8 /* 📦 [Copy symlinks] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 [Copy symlinks]";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Copy symlinks:\"\nfor file in \"${SRCROOT}/deps/lib/\"*.dylib; do\n  if [[ -h \"$file\" ]]; then\n    cp -R $file \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/$(basename $file)\"\n  fi\ndone";
+		};
+		69EABB278855CF3DECE35781 /* 📦 [Copy Framework] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/PMKFoundation.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/AEXML.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/Sparkle.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/Just.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/Gzip.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/Mustache.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/PromiseKit.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/MASPreferences.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/SnapKit.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/PMKQuartzCore.framework",
+				"$(SRCROOT)/dependencies/Carthage/Build/Mac/ResourcesManager.framework",
+			);
+			name = "📦 [Copy Framework]";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		E6702B4285252657D5900AB1 /* 📦 [Auto Add Xcode Build] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 [Auto Add Xcode Build]";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env xcrun -sdk macosx swift";
+			shellScript = "import Foundation\nenum Keys: String {\n    case build = \"CFBundleVersion\"\n    case infoPlist = \"INFOPLIST_FILE\"\n    case user = \"USER\"\n    case configuration = \"CONFIGURATION\"\n    case buildNumberInfo = \"AutomaticBuildNumber\"\n    case release = \"Release\"\n}\nguard let infoPath = ProcessInfo.processInfo.environment[Keys.infoPlist.rawValue],\nlet user = ProcessInfo.processInfo.environment[Keys.user.rawValue],\nlet configuration = ProcessInfo.processInfo.environment[Keys.configuration.rawValue] else { exit(0) }\nvar userInfo: [String : Any] = [:]\nif let info = NSDictionary(contentsOfFile: infoPath) as? [String : Any] { userInfo = info }\nvar buildNumberInfo: [String : Int] = [:]\nif let value = userInfo[Keys.buildNumberInfo.rawValue] as? [String : Int] {\nbuildNumberInfo = value\n}\nvar old = buildNumberInfo[user] ?? 0\nold += 1\nbuildNumberInfo[user] = old\nif configuration == Keys.release.rawValue {\nlet total = buildNumberInfo.values.reduce(0, +)\nuserInfo[Keys.build.rawValue] = \"\\(total)\"\n}\nuserInfo[Keys.buildNumberInfo.rawValue] = buildNumberInfo\n(userInfo as NSDictionary).write(toFile: infoPath, atomically: true)";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		106C54251FA329D800FA6CB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				109009271FC6747100969B64 /* (null) in Sources */,
+				106C54431FA32D8E00FA6CB9 /* IntroVC.swift in Sources */,
+				1041B3F11FBBF02B0061B339 /* MPV.swift in Sources */,
+				106C54451FA32E1200FA6CB9 /* WindowControlButtonsGroup.swift in Sources */,
+				10FA7EA81FC7C3B900C4CD26 /* CancellableDelayedTask.swift in Sources */,
+				106DACD71FAB0009007DC33D /* NSFlipView.swift in Sources */,
+				106C54481FA32F6300FA6CB9 /* NSSImage+Ext.swift in Sources */,
+				106DACDD1FAB163E007DC33D /* Bundle+Ext.swift in Sources */,
+				106C543B1FA32BEA00FA6CB9 /* Application.swift in Sources */,
+				106C542D1FA329D800FA6CB9 /* AppDelegate.swift in Sources */,
+				106DACDB1FAB11C9007DC33D /* MainMenu.swift in Sources */,
+				106C54401FA32D4400FA6CB9 /* NSWindows+Ext.swift in Sources */,
+				106C543D1FA32C2B00FA6CB9 /* main.swift in Sources */,
+				106C544A1FA3311600FA6CB9 /* NSFlipVisualEffectView.swift in Sources */,
+				109009231FC670C000969B64 /* Regex.swift in Sources */,
+				106DACD91FAB0942007DC33D /* NSBackgourndChangableButton.swift in Sources */,
+				10E92DF81FB2E25500732055 /* DI.swift in Sources */,
+				104DB2EE1FBAEB0600A0C489 /* Player.swift in Sources */,
+				10252A261FBED5E500011EC5 /* MPV+Extension.swift in Sources */,
+				10CAA7161FBABFA900C971C5 /* Preference.swift in Sources */,
+				104F91621FBE8CAA00E33F02 /* Command.swift in Sources */,
+				6CCB403024A2FDFE85C4690A /* (null) in Sources */,
+				109009291FC6BCFD00969B64 /* NSWindow+Player.swift in Sources */,
+				108FC9E11FC94629004B7175 /* NeedFixed.swift in Sources */,
+				E0557A5DA80AEF4A2795B428 /* (null) in Sources */,
+				E4DB1202CED0A91B082CE957 /* (null) in Sources */,
+				8F79927A9225D53DD42B2C12 /* MPVOption.swift in Sources */,
+				5B0F728EA5318A986A697DAD /* MPVProperty.swift in Sources */,
+				3787A470F5789AFB079A430F /* FFmpegController.m in Sources */,
+				E67BE6B98CB117C52DF53D64 /* FixedFontManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1022DB4E1FB5D90700343448 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1022DB4D1FB5D90700343448 /* en */,
+				1022DB4F1FB5D90A00343448 /* de */,
+				1022DB501FB5D90C00343448 /* ja */,
+				1022DB511FB5D90D00343448 /* uk */,
+				1022DB521FB5D90E00343448 /* zh-Hans */,
+				1022DB531FB5D91500343448 /* zh-Hant */,
+				1022DB541FB5D94200343448 /* es */,
+				1022DB551FB5D94700343448 /* it */,
+				1022DB561FB5D94A00343448 /* ko */,
+				1022DB571FB5D94C00343448 /* tr */,
+				1022DB581FB5D94F00343448 /* ru */,
+				1022DB591FB5D95000343448 /* fr */,
+				1022DB5A1FB5D95100343448 /* nl */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		106C54351FA329D800FA6CB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		106C54361FA329D800FA6CB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		106C54381FA329D800FA6CB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B0DDCC1FA8733100D8B8F7 /* Leaf.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NR6298RRHY;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.Leaf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/dependencies";
+				SWIFT_OBJC_BRIDGING_HEADER = "Leaf/Support/Leaf-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		106C54391FA329D800FA6CB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B0DDCC1FA8733100D8B8F7 /* Leaf.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NR6298RRHY;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.Leaf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/dependencies";
+				SWIFT_OBJC_BRIDGING_HEADER = "Leaf/Support/Leaf-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		106C54241FA329D800FA6CB9 /* Build configuration list for PBXProject "Leaf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				106C54351FA329D800FA6CB9 /* Debug */,
+				106C54361FA329D800FA6CB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		106C54371FA329D800FA6CB9 /* Build configuration list for PBXNativeTarget "Leaf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				106C54381FA329D800FA6CB9 /* Debug */,
+				106C54391FA329D800FA6CB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 106C54211FA329D800FA6CB9 /* Project object */;
+}

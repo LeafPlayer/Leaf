@@ -1,0 +1,15 @@
+//
+//  Leaf.xcconfig
+//  Leaf
+//
+//  Created by lincolnlaw on 2017/10/27.
+//  Copyright © 2017年 lhc. All rights reserved.
+//
+// https://stackoverflow.com/questions/46401803/xcode-9-compile-error-after-integrating-weex-sdk `-fprofile-instr-generate`
+OTHER_LDFLAGS = $(inherited) -ObjC -l"bz2" -l"z" -l"xar" -framework "IOKit" -framework "Security" -framework "WebKit" -framework "SystemConfiguration"
+HEADER_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/dependencies/include
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/dependencies/Carthage/Build/Mac $(PROJECT_DIR)/dependencies/framework
+LIBRARY_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/dependencies/lib
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @loader_path/Frameworks
+INFOPLIST_FILE = $(SRCROOT)/Leaf/Support/Info.plist
+CLANG_WARN_DOCUMENTATION_COMMENTS = no

@@ -1,0 +1,55 @@
+defaults:
+  configuration: Release
+  platform: Mac
+skips:
+  - [ macOS, GzipSwift, Gzip.xcodeproj, Gzip macOS ]
+  - [ macOS, MASPreferences, MASPreferences.xcodeproj, MASPreferences ]
+  - [ macOS, Just, Just.xcodeproj, Just ]
+  - [ macOS, Sparkle, Sparkle.xcodeproj, Sparkle ]
+  - [ macOS, PromiseKit, PromiseKit.xcodeproj, PromiseKit ]
+  - [ macOS, PromiseKit, PMKFoundation.xcodeproj, PMKFoundation ]
+  - [ macOS, PromiseKit, PMKQuartzCore.xcodeproj, PMKQuartzCore ]
+  - [ macOS, QuartzCore, PMKQuartzCore.xcodeproj, PMKQuartzCore ]
+  - [ macOS, AEXML, AEXML.xcodeproj, AEXML OSX ]
+  - [ macOS, GRMustache.swift, Mustache.xcodeproj, MustacheOSX ]
+  # - [ macOS, SnapKit, SnapKit.xcodeproj, SnapKit ]
+  - [ macOS, ResourcesManager, ResourcesManager.xcodeproj, ResourcesManager ]
+
+# ignore not using framework
+  - [ macOS, PromiseKit, PMKAccounts.xcodeproj, PMKAccounts ]
+  - [ macOS, PromiseKit, PMKAddressBook.xcodeproj, PMKAddressBook ]
+  - [ macOS, PromiseKit, PMKAlamofire.xcodeproj, PMKAlamofire ]
+  - [ macOS, PromiseKit, PMKAssetsLibrary.xcodeproj, PMKAssetsLibrary ]
+  - [ macOS, PromiseKit, PMKAVFoundation.xcodeproj, PMKAVFoundation ]
+  - [ macOS, PromiseKit, PMKBolts.xcodeproj, PMKBolts ]
+  - [ macOS, PromiseKit, PMKAlamofire.xcodeproj, PMKAlamofire ]
+  - [ macOS, PromiseKit, PMKAlamofire.xcodeproj, PMKAlamofire ]
+  - [ macOS, PromiseKit, PMKAlamofire.xcodeproj, PMKAlamofire ]
+  - [ macOS, PromiseKit, PMKCloudKit.xcodeproj, PMKCloudKit ]
+  - [ macOS, PromiseKit, PMKCoreBluetooth.xcodeproj, PMKCoreBluetooth ]
+  - [ macOS, PromiseKit, PMKCoreLocation.xcodeproj, PMKCoreLocation ]
+  - [ macOS, PromiseKit, PMKEventKit.xcodeproj, PMKEventKit ]
+  - [ macOS, PromiseKit, PMKMapKit.xcodeproj, PMKMapKit ]
+  - [ macOS, PromiseKit, PMKMessagesUI.xcodeproj, PMKMessagesUI ]
+  - [ macOS, PromiseKit, PMKOMGHTTPURLRQ.xcodeproj, PMKOMGHTTPURLRQ ]
+  - [ macOS, PromiseKit, PMKPhotos.xcodeproj, PMKPhotos ]
+  - [ macOS, PromiseKit, PMKSocial.xcodeproj, PMKSocial ]
+  - [ macOS, PromiseKit, PMKStoreKit.xcodeproj, PMKStoreKit ]
+  - [ macOS, PromiseKit, PMKSystemConfiguration.xcodeproj, PMKSystemConfiguration ]
+  - [ macOS, PromiseKit, PMKWatchConnectivity.xcodeproj, PMKWatchConnectivity ]
+repo-overrides:
+  SnapKit: local://sub_modules/SnapKit
+  PromiseKit: local://sub_modules/PromiseKit
+  UIKit: local://sub_modules/UIKit
+  QuartzCore: local://sub_modules/QuartzCore
+  Foundation: local://sub_modules/UIKit
+
+  MASPreferences: local://sub_modules/MASPreferences
+  Just: local://sub_modules/Just
+  AEXML: local://sub_modules/AEXML
+  GzipSwift: local://sub_modules/GzipSwift
+  GRMustache.swift: local://sub_modules/GRMustache.swift
+  Sparkle: local://sub_modules/Sparkle
+  # Leaf sub_modules
+  ResourcesManager: local://sub_modules/ResourcesManager
+  LeafDI: local://sub_modules/LeafDI
