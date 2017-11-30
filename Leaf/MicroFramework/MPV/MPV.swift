@@ -24,6 +24,13 @@ public final class MPV {
     private lazy var _wakeUpHandler: () -> Void = { }
     private lazy var _hadLog = false
     private lazy var _eventQueue: DispatchQueue = DispatchQueue(label: "MPV.Event.Queue")
+    private lazy var _timerQueue: DispatchQueue = DispatchQueue(label: "MPV.Timer.Queue")
+    private lazy var _eof = false
+    private lazy var _timer: RepeatingTimer? = {
+        let t = RepeatingTimer()
+        t.eventHandler = { [weak self] in self?.timerCallback() }
+        return t
+    }()
     private lazy var _fileLoaded = false
     private var _state: DI.PlayerState = .stopped
     public private(set) var state: DI.PlayerState {
@@ -31,9 +38,10 @@ public final class MPV {
         set {
             _pQueue.sync { _state = newValue }
             eventHandler(.state)
+            print("state: changed to \(state)")
         }
     }
-    public private(set) var playing = false
+//    public private(set) var playing = false
     
     /**
      This ticket will be increased each time before a new task being submitted to `backgroundQueue`.
@@ -103,6 +111,10 @@ public final class MPV {
         Option.window(.ontop).rawValue: MPV_FORMAT_FLAG,
         Option.window(.windowScale).rawValue: MPV_FORMAT_DOUBLE
     ]
+    
+    deinit {
+        _timer = nil
+    }
     
     public init() {
         let handler = mpv_create()
@@ -300,6 +312,8 @@ public final class MPV {
     }
     
     public func loadfile(url: String, mode: MPV.Command.LoadFileMode = .replace) throws {
+        timerPaused()
+        _eof = false
         let info = DI.MediaInfo(url: url)
         playingInfo = info
         state = .loading
@@ -338,15 +352,13 @@ public final class MPV {
     
     
     public func togglePlayPause(play: Bool? = nil) {
-        var isPaused = playing == false
+        var isPaused = state.isPlaying == false
         if let p = play {
             isPaused = !p
         } else {
             isPaused = !isPaused
         }
         setBoolOption(value: isPaused, for: Option.playbackControl(.pause))
-        playing = isPaused == false
-        state = playing ? .playing : .paused
     }
     
     public func fullScreen(enabled: Bool) {
@@ -358,6 +370,10 @@ public final class MPV {
         _eventQueue.suspend()
         state = .stopped
         command(.stop)
+    }
+    
+    public func playlistClear() {
+         command(.playlistClear)
     }
     
     public func quit() {
@@ -432,7 +448,70 @@ public final class MPV {
             info.chapters.append(chapter)
         }
     }
+    
+    public func playPlaylist(at index: Int) {
+        guard let info = playingInfo, let item = info.playlist[le_safe: index] else { return }
+        info.playingListIndex = index
+        try? loadfile(url: item.filename)
+    }
+    
+    public func playChapter(at index: Int) {
+        guard let info = playingInfo, let item = info.chapters[le_safe: index] else { return }
+        info.playingChapterIndex = index
+        if state.isPaused {
+            togglePlayPause(play: true)
+        }
+        command(MPV.Command.seek(.absolute, item.time, nil))
+        if state.isPaused {
+            togglePlayPause(play: true)
+        }
+    }
+    
+    public func seekRelative(second: Double, extra: MPV.Command.SeekModeExtra? = nil) {
+        seek(to: second, mode: .relative, extra: extra)
+    }
+    
+    public func seekAbsolute(second: Double) {
+        seek(to: second, mode: .relative, extra: .exact)
+    }
+
+    public func seekPecentage(percent: Double, forceExact: Bool) {
+        guard let info = playingInfo else { return }
+        var percent = percent
+        // mpv will play next file automatically when seek to EOF.
+        // the following workaround will constrain the max seek position to (video length - 1) s.
+        // however, it still won't work for videos with large keyframe interval.
+        let duration = info.duration
+        let maxPercent = (duration - 1) / duration * 100
+        percent = percent.constrain(min: 0, max: maxPercent)
+        
+        let useExact = forceExact ? true : Pref.isUseExactSeek
+        let mode: MPV.Command.SeekMode = .absolutePercent
+        let extra: MPV.Command.SeekModeExtra? = useExact ? .exact : nil
+        seek(to: percent, mode: mode, extra: extra)
+    }
+    
+    private func seek(to value: Double, mode: MPV.Command.SeekMode, extra: MPV.Command.SeekModeExtra? = nil) {
+        command(.seek(mode, value, extra))
+    }
 }
+// MARK: - Timer tick
+private extension MPV {
+    func timerPaused() {
+        _timer?.suspend()
+    }
+    
+    func timerResume() {
+        _timer?.resume()
+    }
+    
+    func timerCallback() {
+        if let pos = double(for: .timePos) {
+            playingInfo?.increasePlayPos(to: pos)
+        }
+    }
+}
+// MARK: - Get Set
 private extension MPV {
     func int(for name: Property) -> Int? {
         return get(property: name.rawValue)
@@ -530,6 +609,7 @@ extension MPV {
             if let loglevel = LogLevel(rawValue: String(cString: level)) {
                 switch loglevel {
                 case .error: state = .error(message)
+                case .v: if message.contains("EOF reached.") { _eof = true }
                 default: break
                 }
                 print("MPV log: [\(String(cString: prefix))] \(loglevel.rawValue): \(message)")
@@ -537,12 +617,13 @@ extension MPV {
             
             
         case MPV_EVENT_PROPERTY_CHANGE:
+            print("MPV_EVENT_PROPERTY_CHANGE")
             let dataOpaquePtr = OpaquePointer(event.pointee.data)
             guard let property = UnsafePointer<mpv_event_property>(dataOpaquePtr)?.pointee else { return }
             let propertyName = String(cString: property.name)
             handlePropertyChange(propertyName, property)
             
-        case MPV_EVENT_AUDIO_RECONFIG: break
+        case MPV_EVENT_AUDIO_RECONFIG: print("MPV_EVENT_AUDIO_RECONFIG")
             
         case MPV_EVENT_VIDEO_RECONFIG: onVideoReconfig()
             
@@ -554,7 +635,8 @@ extension MPV {
             
         case MPV_EVENT_FILE_LOADED: onFileLoaded()
             
-        case MPV_EVENT_SEEK: break
+        case MPV_EVENT_SEEK: print("MPV_EVENT_SEEK")
+            playingInfo?.isSeeking = true
             //            player.info.isSeeking = true
             //            if needRecordSeekTime {
             //                recordedSeekStartTime = CACurrentMediaTime()
@@ -565,7 +647,11 @@ extension MPV {
             //            let percentage = (player.info.videoPosition / player.info.videoDuration) ?? 1
             //            player.sendOSD(.seek(osdText, percentage))
             
-        case MPV_EVENT_PLAYBACK_RESTART: break
+        case MPV_EVENT_PLAYBACK_RESTART:
+            print("MPV_EVENT_PLAYBACK_RESTART")
+            playingInfo?.isSeeking = false
+            if let pos = double(for: .timePos) { playingInfo?.playPosition = pos }
+            
             //            player.info.isIdle = false
             //            player.info.isSeeking = false
             //            if needRecordSeekTime {
@@ -576,6 +662,8 @@ extension MPV {
             //            player.syncUI(.time)
             
         case MPV_EVENT_END_FILE:
+            print("MPV_EVENT_END_FILE")
+            state = .stopped
             // if receive end-file when loading file, might be error
             // wait for idle
             //            if player.info.fileLoading {
@@ -583,10 +671,11 @@ extension MPV {
             //            } else {
             //                player.info.shouldAutoLoadFiles = false
             //            }
-            print("MPV_EVENT_END_FILE")
-            break
             
         case MPV_EVENT_IDLE:
+            print("MPV_EVENT_IDLE")
+            state = .stopped
+            
             //            if receivedEndFileWhileLoading && player.info.fileLoading {
             //                player.errorOpeningFileAndCloseMainWindow()
             //                player.info.fileLoading = false
@@ -622,23 +711,22 @@ extension MPV {
     }
     
     private func onFileLoaded() {
-        
-        togglePlayPause(play: false)
+        self.togglePlayPause(play: false)
         if let duration = double(for: .duration) {
             playingInfo?.duration = duration
         }
         if let width = int(for: .width), let height = int(for: .height) {
             playingInfo?.videoSize = CGSize(width: width, height: height)
         }
-        if Pref.isPauseWhenOpen == false { togglePlayPause(play: true) }
-        
+        timerResume()
         _fileLoaded = true
         playingInfo?.loading = false
+        
         
         DispatchQueue.main.async {
             self.updatePlayerList()
             self.updateChapters()
-            
+            if Pref.isPauseWhenOpen == false { self.togglePlayPause(play: true) }
         }
     }
     
@@ -650,7 +738,7 @@ extension MPV {
         info.justStartedFile = true
         info.disableOSDForFileLoading = true
         info.resourceType = .unknown
-        playing = true
+        
         info.currentURL = path.contains("://") ? URL(string: path) : URL(fileURLWithPath: path)
         // Auto load
         backgroundQueueTicket += 1
@@ -675,6 +763,7 @@ extension MPV {
     }
     
     private func handlePropertyChange(_ name: String, _ property: mpv_event_property) {
+        print("handlePropertyChange: \(name), property:\(property)")
         
         switch name {
             
@@ -708,7 +797,20 @@ extension MPV {
 //                self.player.mainWindow.quickSettingView.reloadSubtitleData()
 //            }
             
-        case Option.PlaybackControl.pause.rawValue: break
+        case Option.PlaybackControl.pause.rawValue:
+            let isPaused = property.data.assumingMemoryBound(to: Bool.self).pointee
+            _pQueue.sync {
+                if isPaused {
+                    _state = .paused
+                } else {
+                    _state = .playing
+                }
+            }
+            if _eof == true {
+                seekAbsolute(second: 0)
+                timerPaused()
+                _eof = false
+            }
 //            if let data = UnsafePointer<Bool>(OpaquePointer(property.data))?.pointee {
 //                if player.info.isPaused != data {
 //                    player.sendOSD(data ? .pause : .resume)

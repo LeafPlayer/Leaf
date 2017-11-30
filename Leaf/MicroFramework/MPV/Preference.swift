@@ -34,7 +34,6 @@ extension MPV {
         public var subOverrideLevel: SubOverrideLevel = .strip { didSet { postChangedProperty(.subOverrideLevel) } }
         public var themeMaterial: Theme = .dark { didSet { postChangedProperty(.themeMaterial) } }
         public var transportRTSPThrough: RTSPTransportation = .tcp { didSet { postChangedProperty(.transportRTSPThrough) } }
-        public var useExactSeek: SeekOption = .relative { didSet { postChangedProperty(.useExactSeek) } }
         public var verticalScrollAction: ScrollAction = .volume
         
         public var audioThreads = 0 { didSet { postChangedProperty(.audioThreads) } }
@@ -99,6 +98,7 @@ extension MPV {
         public var isSubScaleWithWindow = true { didSet { postChangedProperty(.isSubScaleWithWindow) } }
         public var isTrackAllFilesInRecentOpenMenu = true
         public var isUseAppleRemote = false { didSet { postChangedProperty(.isUseAppleRemote) } }
+        public var isUseExactSeek: Bool = false { didSet { postChangedProperty(.isUseExactSeek) } }
         public var isUseLegacyFullScreen = false { didSet { postChangedProperty(.isUseLegacyFullScreen) } }
         public var isUseMediaKeys = false { didSet { postChangedProperty(.isUseMediaKeys) } }
         public var isUseMpvOsd = false
@@ -221,7 +221,7 @@ extension MPV {
         }
         
         private enum CodingKeys: String, CodingKey {
-            case screenshotFolder, screenshotFormat, screenshotTemplate, isUseMediaKeys, isUseAppleRemote, isKeepOpenOnFileEnd, isPlaylistAutoPlayNext, isResumeLastPosition, videoThreads, audioThreads, hardwareDecoder, audioLanguage, maxVolume, isIgnoreAssStyles, subOverrideLevel, subTextFont, subTextSize, subTextColor, subBgColor, isSubBold, isSubItalic, subBlur, subSpacing, subBorderSize, subBorderColor, subShadowSize, subShadowColor, subAlignX, subAlignY, subMarginX, subMarginY, subPos, subLang, isDisplayInLetterBox, isSubScaleWithWindow, isEnableCache, defaultCacheSize, cacheBufferSize, secPrefech, userAgent, transportRTSPThrough, isYtdlEnabled, ytdlRawOptions, themeMaterial, oscPosition, isShowChapterPos, useExactSeek, relativeSeekAmount, volumeScrollAmount, horizontalScrollAction, verticalScrollAction, arrowButtonAction, singleClickAction, doubleClickAction, pinchAction, isShowRemainingTime, isBlackOutMonitor, isAlwaysFloatOnTop, isUseLegacyFullScreen, isAlwaysOpenInNewWindow, isEnableCmdN, isRecordPlaybackHistory, isRecordRecentFiles, isTrackAllFilesInRecentOpenMenu, controlBarPositionHorizontal, controlBarPositionVertical, isControlBarStickToCenter, controlBarAutoHideTimeout, playlistWidth, osdAutoHideTimeout, osdTextSize, softVolume, isPauseWhenOpen, isFullScreenWhenOpen, isLegacyFullScreenAnimation, isPlaylistAutoAdd, isUsePhysicalResolution, isResizeOnlyWhenManuallyOpenFile, isEnableThumbnailPreview, maxThumbnailPreviewCacheSize, watchProperties, isAutoSwitchToMusicMode, isEnableSpdifAC3, isEnableSpdifDTS, isEnableSpdifDTSHD, isEnableInitialVolume, initialVolume, subAutoLoadPolicy, subAutoLoadPriorityString, subAutoLoadSearchPath, onlineSubSource, openSubUsername, defaultEncoding, ytdlSearchPath, httpProxy, currentInputConfigName, isEnableAdvancedSettings, isUseMpvOsd, isEnableLogging, userOptions, isUseUserDefinedConfDir, userDefinedConfDir, isQuitWhenNoOpenedWindow, isFollowGlobalSeekTypeWhenAdjustSlider, middleClickAction, forceTouchAction, isScreenshotIncludeSubtitle, postLaunchAction, musicModeSize, windowMinimumSize
+            case screenshotFolder, screenshotFormat, screenshotTemplate, isUseMediaKeys, isUseAppleRemote, isKeepOpenOnFileEnd, isPlaylistAutoPlayNext, isResumeLastPosition, videoThreads, audioThreads, hardwareDecoder, audioLanguage, maxVolume, isIgnoreAssStyles, subOverrideLevel, subTextFont, subTextSize, subTextColor, subBgColor, isSubBold, isSubItalic, subBlur, subSpacing, subBorderSize, subBorderColor, subShadowSize, subShadowColor, subAlignX, subAlignY, subMarginX, subMarginY, subPos, subLang, isDisplayInLetterBox, isSubScaleWithWindow, isEnableCache, defaultCacheSize, cacheBufferSize, secPrefech, userAgent, transportRTSPThrough, isYtdlEnabled, ytdlRawOptions, themeMaterial, oscPosition, isShowChapterPos, isUseExactSeek, relativeSeekAmount, volumeScrollAmount, horizontalScrollAction, verticalScrollAction, arrowButtonAction, singleClickAction, doubleClickAction, pinchAction, isShowRemainingTime, isBlackOutMonitor, isAlwaysFloatOnTop, isUseLegacyFullScreen, isAlwaysOpenInNewWindow, isEnableCmdN, isRecordPlaybackHistory, isRecordRecentFiles, isTrackAllFilesInRecentOpenMenu, controlBarPositionHorizontal, controlBarPositionVertical, isControlBarStickToCenter, controlBarAutoHideTimeout, playlistWidth, osdAutoHideTimeout, osdTextSize, softVolume, isPauseWhenOpen, isFullScreenWhenOpen, isLegacyFullScreenAnimation, isPlaylistAutoAdd, isUsePhysicalResolution, isResizeOnlyWhenManuallyOpenFile, isEnableThumbnailPreview, maxThumbnailPreviewCacheSize, watchProperties, isAutoSwitchToMusicMode, isEnableSpdifAC3, isEnableSpdifDTS, isEnableSpdifDTSHD, isEnableInitialVolume, initialVolume, subAutoLoadPolicy, subAutoLoadPriorityString, subAutoLoadSearchPath, onlineSubSource, openSubUsername, defaultEncoding, ytdlSearchPath, httpProxy, currentInputConfigName, isEnableAdvancedSettings, isUseMpvOsd, isEnableLogging, userOptions, isUseUserDefinedConfDir, userDefinedConfDir, isQuitWhenNoOpenedWindow, isFollowGlobalSeekTypeWhenAdjustSlider, middleClickAction, forceTouchAction, isScreenshotIncludeSubtitle, postLaunchAction, musicModeSize, windowMinimumSize
         }
         //
     }
@@ -274,9 +274,9 @@ extension MPV.Preference {
     }
     
     public enum Property: String {
-        static let UserActionRelative: Set<Property> = [.themeMaterial, .oscPosition, .isShowChapterPos, .useExactSeek, .relativeSeekAmount, .volumeScrollAmount, .horizontalScrollAction, .verticalScrollAction, .arrowButtonAction, .singleClickAction, .doubleClickAction, .pinchAction, .isShowRemainingTime, .isBlackOutMonitor, .isAlwaysFloatOnTop, .isUseLegacyFullScreen, .maxVolume]
+        static let UserActionRelative: Set<Property> = [.themeMaterial, .oscPosition, .isShowChapterPos, .isUseExactSeek, .relativeSeekAmount, .volumeScrollAmount, .horizontalScrollAction, .verticalScrollAction, .arrowButtonAction, .singleClickAction, .doubleClickAction, .pinchAction, .isShowRemainingTime, .isBlackOutMonitor, .isAlwaysFloatOnTop, .isUseLegacyFullScreen, .maxVolume]
         static let Normal: Set<Property> = [.screenshotFolder, .screenshotFormat, .screenshotTemplate, .isUseMediaKeys, .isUseAppleRemote, .isKeepOpenOnFileEnd, .isPlaylistAutoPlayNext, .isResumeLastPosition, .videoThreads, .audioThreads, .hardwareDecoder, .audioLanguage, .maxVolume, .isIgnoreAssStyles, .subOverrideLevel, .subTextFont, .subTextSize, .subTextColor, .subBgColor, .isSubBold, .isSubItalic, .subBlur, .subSpacing, .subBorderSize, .subBorderColor, .subShadowSize, .subShadowColor, .subAlignX, .subAlignY, .subMarginX, .subMarginY, .subPos, .subLang, .isDisplayInLetterBox, .isSubScaleWithWindow, .isEnableCache, .defaultCacheSize, .cacheBufferSize, .secPrefech, .userAgent, .transportRTSPThrough, .isYtdlEnabled, .ytdlRawOptions]
-        case screenshotFolder, screenshotFormat, screenshotTemplate, isUseMediaKeys, isUseAppleRemote, isKeepOpenOnFileEnd, isPlaylistAutoPlayNext, isResumeLastPosition, videoThreads, audioThreads, hardwareDecoder, audioLanguage, maxVolume, isIgnoreAssStyles, subOverrideLevel, subTextFont, subTextSize, subTextColor, subBgColor, isSubBold, isSubItalic, subBlur, subSpacing, subBorderSize, subBorderColor, subShadowSize, subShadowColor, subAlignX, subAlignY, subMarginX, subMarginY, subPos, subLang, isDisplayInLetterBox, isSubScaleWithWindow, isEnableCache, defaultCacheSize, cacheBufferSize, secPrefech, userAgent, transportRTSPThrough, isYtdlEnabled, ytdlRawOptions, themeMaterial, oscPosition, isShowChapterPos, useExactSeek, relativeSeekAmount, volumeScrollAmount, horizontalScrollAction, verticalScrollAction, arrowButtonAction, singleClickAction, doubleClickAction, pinchAction, isShowRemainingTime, isBlackOutMonitor, isAlwaysFloatOnTop, isUseLegacyFullScreen
+        case screenshotFolder, screenshotFormat, screenshotTemplate, isUseMediaKeys, isUseAppleRemote, isKeepOpenOnFileEnd, isPlaylistAutoPlayNext, isResumeLastPosition, videoThreads, audioThreads, hardwareDecoder, audioLanguage, maxVolume, isIgnoreAssStyles, subOverrideLevel, subTextFont, subTextSize, subTextColor, subBgColor, isSubBold, isSubItalic, subBlur, subSpacing, subBorderSize, subBorderColor, subShadowSize, subShadowColor, subAlignX, subAlignY, subMarginX, subMarginY, subPos, subLang, isDisplayInLetterBox, isSubScaleWithWindow, isEnableCache, defaultCacheSize, cacheBufferSize, secPrefech, userAgent, transportRTSPThrough, isYtdlEnabled, ytdlRawOptions, themeMaterial, oscPosition, isShowChapterPos, isUseExactSeek, relativeSeekAmount, volumeScrollAmount, horizontalScrollAction, verticalScrollAction, arrowButtonAction, singleClickAction, doubleClickAction, pinchAction, isShowRemainingTime, isBlackOutMonitor, isAlwaysFloatOnTop, isUseLegacyFullScreen
         public var notificationName: Notification.Name { return Notification.Name(rawValue) }
         
         public func mpvOption() -> [MPV.Option] {
@@ -335,7 +335,7 @@ extension MPV.Preference {
             case .subTextSize: opts.append(.subtitles(.subFontSize))
             case .themeMaterial: break
             case .transportRTSPThrough: opts.append(.network(.rtspTransport))
-            case .useExactSeek: break
+            case .isUseExactSeek: break
             case .userAgent: opts.append(.network(.userAgent))
             case .verticalScrollAction: break
             case .videoThreads: opts.append(.video(.vdLavcThreads))
@@ -401,7 +401,7 @@ extension MPV.Preference {
             case .subTextSize: return p.subTextSize
             case .themeMaterial: return p.themeMaterial.rawValue
             case .transportRTSPThrough: return p.transportRTSPThroughValueForMPV()
-            case .useExactSeek: return p.useExactSeek.rawValue
+            case .isUseExactSeek: return p.isUseExactSeek
             case .userAgent: return p.userAgentValueForMPV()
             case .verticalScrollAction: return p.verticalScrollAction.rawValue
             case .videoThreads: return p.videoThreads

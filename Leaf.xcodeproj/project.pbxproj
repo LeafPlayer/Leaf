@@ -11,11 +11,13 @@
 		091799C2BCF8D7C91EC45BEA /* Sparkle.dSYM in 📦 [Copy Framework dSYM] */ = {isa = PBXBuildFile; fileRef = A1510DA0DFADAA8B82394026 /* Sparkle.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0C21B8F2833C3AE90346A086 /* libbluray.2.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 2A973D46DEC9466FC7F94DAB /* libbluray.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0E7862236312AD2A54B53650 /* libx264.148.dylib in 📦 [Copy Dylibs] */ = {isa = PBXBuildFile; fileRef = 766FB41EBE07C11B502D6B5F /* libx264.148.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		100D14AA1FCD6323000F2611 /* NSDocumentController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D14A91FCD6323000F2611 /* NSDocumentController+Ext.swift */; };
 		1022DB4C1FB5D90700343448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1022DB4E1FB5D90700343448 /* InfoPlist.strings */; };
 		10252A261FBED5E500011EC5 /* MPV+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10252A251FBED5E500011EC5 /* MPV+Extension.swift */; };
 		1041B3F11FBBF02B0061B339 /* MPV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B3F01FBBF02B0061B339 /* MPV.swift */; };
 		104DB2EE1FBAEB0600A0C489 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2ED1FBAEB0600A0C489 /* Player.swift */; };
 		104F91621FBE8CAA00E33F02 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104F91611FBE8CAA00E33F02 /* Command.swift */; };
+		106632261FCEBCA300841881 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106632251FCEBCA300841881 /* Timer.swift */; };
 		106C542D1FA329D800FA6CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C542C1FA329D800FA6CB9 /* AppDelegate.swift */; };
 		106C542F1FA329D800FA6CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106C542E1FA329D800FA6CB9 /* Assets.xcassets */; };
 		106C543B1FA32BEA00FA6CB9 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C543A1FA32BEA00FA6CB9 /* Application.swift */; };
@@ -223,6 +225,7 @@
 		05E526493BCCF60FB128FF39 /* libdvdread.4.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libdvdread.4.dylib; path = dependencies/lib/libdvdread.4.dylib; sourceTree = "<group>"; };
 		0A6BD6FB043699315049D29E /* libavformat.57.83.100.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.57.83.100.dylib; path = ../../../../../../usr/local/opt/ffmpeg/lib/libavformat.57.83.100.dylib; sourceTree = "<group>"; };
 		0D67AD8DDF2120F11280AFA8 /* ResourcesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResourcesManager.framework; path = dependencies/Carthage/Build/Mac/ResourcesManager.framework; sourceTree = "<group>"; };
+		100D14A91FCD6323000F2611 /* NSDocumentController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDocumentController+Ext.swift"; sourceTree = "<group>"; };
 		1022DB4D1FB5D90700343448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1022DB4F1FB5D90A00343448 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1022DB501FB5D90C00343448 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -240,6 +243,7 @@
 		1041B3F01FBBF02B0061B339 /* MPV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPV.swift; sourceTree = "<group>"; };
 		104DB2ED1FBAEB0600A0C489 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		104F91611FBE8CAA00E33F02 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		106632251FCEBCA300841881 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		106C54291FA329D800FA6CB9 /* Leaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106C542C1FA329D800FA6CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		106C542E1FA329D800FA6CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -402,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				1041B3F01FBBF02B0061B339 /* MPV.swift */,
+				106632251FCEBCA300841881 /* Timer.swift */,
+				100D14A91FCD6323000F2611 /* NSDocumentController+Ext.swift */,
 				10CAA7151FBABFA900C971C5 /* Preference.swift */,
 				104F91611FBE8CAA00E33F02 /* Command.swift */,
 				10252A251FBED5E500011EC5 /* MPV+Extension.swift */,
@@ -835,12 +841,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100D14AA1FCD6323000F2611 /* NSDocumentController+Ext.swift in Sources */,
 				109009271FC6747100969B64 /* (null) in Sources */,
 				106C54431FA32D8E00FA6CB9 /* IntroVC.swift in Sources */,
 				1041B3F11FBBF02B0061B339 /* MPV.swift in Sources */,
 				106C54451FA32E1200FA6CB9 /* WindowControlButtonsGroup.swift in Sources */,
 				10FA7EA81FC7C3B900C4CD26 /* CancellableDelayedTask.swift in Sources */,
 				106DACD71FAB0009007DC33D /* NSFlipView.swift in Sources */,
+				106632261FCEBCA300841881 /* Timer.swift in Sources */,
 				106C54481FA32F6300FA6CB9 /* NSSImage+Ext.swift in Sources */,
 				106DACDD1FAB163E007DC33D /* Bundle+Ext.swift in Sources */,
 				106C543B1FA32BEA00FA6CB9 /* Application.swift in Sources */,

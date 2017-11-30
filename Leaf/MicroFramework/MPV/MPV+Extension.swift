@@ -8,6 +8,7 @@
 
 import Cocoa
 import libmpv
+import ResourcesManager
 
 extension Int32 {
     public func checkError() throws {
@@ -15,11 +16,20 @@ extension Int32 {
         throw MPV.ActionError.error("\(String(cString: mpv_error_string(self))), return:\(self)")
     }
 }
+
+extension Double {
+    func constrain(min: Double, max: Double) -> Double {
+        var value = self
+        if self < min { value = min }
+        if self > max { value = max }
+        return value
+    }
+}
 extension FileManager {
     static func createDirIfNotExist(url: URL) {
         let path = url.path
         // check exist
-        if !FileManager.default.fileExists(atPath: path) {
+        if FileManager.default.fileExists(atPath: path) == false {
             do {
                 try FileManager.default.createDirectory(at: url, withIntermediateDirectories: false, attributes: nil)
             } catch {
@@ -29,13 +39,19 @@ extension FileManager {
         }
     }
 }
-
+extension NSMenu {
+    func defaultNoneItem() {
+        removeAllItems()
+        addItem(withTitle: I18N.MainMenu.None, action: nil, keyEquivalent: "").state = .on
+    }
+}
 extension NSColor {
     public var colorHex: MPV.Preference.ColorHex {
         let color = usingColorSpace(NSColorSpace.deviceRGB)!
         return MPV.Preference.ColorHex(r: color.redComponent, g: color.greenComponent, b: color.blueComponent, a: color.alphaComponent)
     }
 }
+
 
 extension UnsafeMutableRawPointer {
     func to<T : AnyObject>(object: T.Type) -> T {

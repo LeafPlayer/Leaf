@@ -22,7 +22,7 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
     }
     public var isInFullScreen: Bool = false {
         didSet {
-            _mpv?.fullScreen(enabled: isInFullScreen)
+            _mpv.fullScreen(enabled: isInFullScreen)
         }
     }
     
@@ -37,7 +37,7 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
         return controller
     }()
     
-    private var _mpv: MPV?
+    private lazy var _mpv: MPV = MPV()
     private var displayOSD = false
     private var obs: [NSObjectProtocol] = []
     private lazy var queue: DispatchQueue = DispatchQueue(label: "com.selfstudio.leaf.controller")
@@ -80,8 +80,8 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
     }
     
     deinit {
-        _mpv?.unobserveProperties()
-        _mpv?.destory()
+        _mpv.unobserveProperties()
+        _mpv.destory()
         obs.forEach { ob in NotificationCenter.default.removeObserver(ob) }
         print("LeafPlayer deinit")
     }
@@ -111,13 +111,11 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
             m.top.left.bottom.right.equalToSuperview()
         }
         _holder = Holder(player: self)
-        let mpv = MPV()
-        _mpv = mpv
-        initMPV(mpv)
+        initMPV(_mpv)
         _releaseOnclose = true
 
-        videoView.mpv = mpv
-        _mpv?.eventHandler = {[unowned self] event in
+        videoView.mpv = _mpv
+        _mpv.eventHandler = {[unowned self] event in
             switch event {
             case .videoReconfig: self.videoReconfig()
             case .state: self.playingStateChanged()
@@ -134,8 +132,8 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
     
     public func windowWillClose(_ notification: Notification) {
         DI.registerActivePlayer(instance: nil)
-        _mpv?.savePlaybackPosition()
-        _mpv?.stop()
+        _mpv.savePlaybackPosition()
+        _mpv.stop()
         if _releaseOnclose {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 self._holder?.player = nil
@@ -149,7 +147,7 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
     
     private func initMPV(_ mpv: MPV) {
         videoView.layer?.display()
-        _mpv?.openGLCallback = {[unowned self] in
+        _mpv.openGLCallback = {[unowned self] in
             self.videoView.videoLayer.mpvGLQueue.async {
                 self.videoView.videoLayer.display()
             }
@@ -206,7 +204,7 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
         for key in MPV.Preference.Property.Normal {
             mpv.setOption(for: key)
             let ob = NotificationCenter.default.addObserver(forName: key.notificationName, object: nil, queue: nil, using: {[unowned self] (note) in
-                self._mpv?.setOption(for: key)
+                self._mpv.setOption(for: key)
             })
             obs.append(ob)
         }
@@ -217,6 +215,8 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
         try? mpv.setStringOption(value: Pref.defaultEncoding, for: MPV.Option.subtitles(.subCodepage)).checkError()
         
         try? mpv.setStringExOption(value: Preference.watchLaterURL.path, for: .watchLaterDirectory).checkError()
+        mpv.setBoolOption(value: false, for: MPV.Option.audio(.audioDisplay))
+//        mpv.setStringOption(value: "APIC,Artist,Album", for: .miscellaneous(.displayTags))
         // Set user defined conf dir.
         if Pref.isUseUserDefinedConfDir == true {
             let dir = (Pref.userDefinedConfDir as NSString).standardizingPath
@@ -249,12 +249,13 @@ public final class LeafPlayer: NSWindowController, NSWindowDelegate {
             inputConfPath = currentConfigFilePath
         }
         try? mpv.setStringOption(value: inputConfPath, for: .input(.inputConf)).checkError()
-        try? mpv.enabledLog(level: .warn).checkError() // Receive log messages at warn level.
+        try? mpv.enabledLog(level: .v).checkError() // Receive log messages at warn level.
         // Request tick event.
         try? mpv.enabledTickEvent().checkError()
         mpv.enabledWakeUpCallback()
         mpv.enabledObserveProperties()
         mpv.initialize()
+        //info: Displaying attached picture. Use --no-audio-display to prevent this.
     }
     
     public func windowDidResize(_ notification: Notification) {
@@ -308,7 +309,7 @@ extension LeafPlayer {
         }
     }
     public override func rightMouseUp(with event: NSEvent) {
-        _mpv?.togglePlayPause()
+        _mpv.togglePlayPause()
     }
     
     private func showUI() {
@@ -353,14 +354,14 @@ extension LeafPlayer {
 //
 //        if videoView.suspending == false {
 //            videoView.suspending = true
-//            _mpv?.togglePlayPause(play: false)
+//            _mpv.togglePlayPause(play: false)
 //        }
 //        return frameSize
 //    }
 //    public func windowDidEndLiveResize(_ notification: Notification) {
 //        if videoView.suspending == true {
 //            videoView.suspending = false
-//            _mpv?.togglePlayPause(play: true)
+//            _mpv.togglePlayPause(play: true)
 //        }
 //        print("end")
 //    }
@@ -423,7 +424,7 @@ extension LeafPlayer {
 //        }
 
         // Let mpv decide the correct render region in full screen
-        _mpv?.setBoolOption(value: true, for: MPV.Option.window(.keepaspect))
+        _mpv.setBoolOption(value: true, for: MPV.Option.window(.keepaspect))
 
         // Set the appearance to match the theme so the titlebar matches the theme
         switch Pref.themeMaterial {
@@ -512,7 +513,7 @@ extension LeafPlayer {
 
         videoView.videoLayer.mpvGLQueue.async {
             // reset `keepaspect`
-            self._mpv?.setBoolOption(value: true, for: MPV.Option.window(.keepaspect))
+            self._mpv.setBoolOption(value: true, for: MPV.Option.window(.keepaspect))
             DispatchQueue.main.sync {
                 for (_, constraint) in self._videoViewConstraints {
                     constraint.constant = 0
@@ -540,24 +541,20 @@ extension LeafPlayer {
 private extension LeafPlayer {
     
     func playingStateChanged() {
-        if let value = state, case DI.PlayerState.error(let message) = value {
-            NotificationCenter.showError(with: message)
-            if let url = _mpv?.playingInfo?.currentURL {
-                if var copy = url.absoluteString.replacingOccurrences(of: "file://", with: "").removingPercentEncoding?.cString(using: .utf8) {
-                    let rv = realpath(&copy, nil)
-                    guard rv == nil else { return }
-                    do { try FileManager.default.trashItem(at: url, resultingItemURL: nil) }
-                    catch { }
-                }
-            }
-        }
-        guard let menu: MainMenuResolver = DI.referrence(for: .mainMenu) else { return }
-        menu.playingStateChanged()
+        
+        guard let value = state, case DI.PlayerState.error(let message) = value  else { return }
+        NotificationCenter.showError(with: message)
+        guard let url = _mpv.playingInfo?.currentURL else { return }
+        guard FileManager.default.fileExists(atPath: url.path) == false else { return }
+        do {
+            try FileManager.default.trashItem(at: url, resultingItemURL: nil)
+            NSDocumentController.shared.removeRecentDocumentURL(url)
+        } catch { }
     }
     
     func videoReconfig() {
-        guard let info = _mpv?.playingInfo, let w = window, let mpv = _mpv else { return }
-        
+        guard let info = _mpv.playingInfo, let w = window else { return }
+        let mpv = _mpv
         let (width, height) = info.videoSizeForDisplay(netRotate: mpv.netRotate)
         // set aspect ratio
         let originalVideoSize = NSSize(width: width, height: height)
@@ -651,7 +648,7 @@ private extension LeafPlayer {
         }
         DispatchQueue.main.async {
 //           self.hideUI()
-//            self._mpv?.togglePlayPause(play: false)
+//            self._mpv.togglePlayPause(play: false)
         }
         
         // UI and slider
@@ -665,7 +662,7 @@ private extension LeafPlayer {
         var widthOffset: CGFloat = 2
         let heightOffset: CGFloat = 0.75
         var xOffset: CGFloat = 0
-        if _mpv?.playingInfo?.isNetworkResource == false {
+        if _mpv.playingInfo?.isNetworkResource == false {
             widthOffset += 2
             xOffset = -18
         }
@@ -679,7 +676,7 @@ private extension LeafPlayer {
 //        if var rect = titleTextField?.frame, let winFrame = window?.frame {
 //            rect.origin.y = winFrame.size.height - rect.origin.y - rect.height
 //            rect = rect.insetBy(dx: -4, dy: -1.5).offsetBy(dx: 0, dy: 0.5)
-//            if _mpv?.playingInfo?.isNetworkResource == false {
+//            if _mpv.playingInfo?.isNetworkResource == false {
 //                rect = rect.insetBy(dx: -8, dy: 0).offsetBy(dx: -9, dy: 0)
 //            }
 //            titleBgView.frame = rect
@@ -719,7 +716,7 @@ extension LeafPlayer: FFmpegControllerDelegate {
     }
     
     private func generateThumbnails() {
-        guard var info = _mpv?.playingInfo, let path = info.currentURL?.path else { return }
+        guard var info = _mpv.playingInfo, let path = info.currentURL?.path else { return }
         info.thumbnails.removeAll(keepingCapacity: true)
         info.thumbnailsProgress = 0
         info.thumbnailsReady = false
@@ -746,22 +743,47 @@ extension LeafPlayer: FFmpegControllerDelegate {
 }
 // MARK: - PlayerResolver
 extension LeafPlayer: PlayerResolver {
+    public func playPlaylist(at index: Int) {
+        _mpv.playPlaylist(at: index)
+    }
+    
+    public func stop() {
+        _mpv.stop()
+    }
+    
+    public func clearPlaylist() {
+        _mpv.playlistClear()
+    }
+    
+    public func seekRelative(second: Double, extra: MPV.Command.SeekModeExtra?) {
+        _mpv.seekRelative(second: second, extra: extra)
+    }
+    
+    public func seekAbsolute(second: Double) {
+        _mpv.seekAbsolute(second: second)
+    }
+    
+    public func seekPecentage(percent: Double, forceExact: Bool) {
+        _mpv.seekPecentage(percent: percent, forceExact: forceExact)
+    }
+    
+    public var playingListIndex: Int? { return _mpv.playingInfo?.playingListIndex }
+    public var playingChapterIndex: Int? { return _mpv.playingInfo?.playingChapterIndex }
     public var media: DI.MediaInfo? {
-        return _mpv?.playingInfo
+        return _mpv.playingInfo
     }
     
     public var state: DI.PlayerState? {
-        return _mpv?.state
+        return _mpv.state
     }
     public func playing() -> Bool {
-        guard let playing = _mpv?.playing else { return false }
-        return playing
+        return _mpv.state.isPlaying
     }
     /// togglePlayPause
     ///
     /// - Returns: playing or not
     public func togglePlayPause() {
-        _mpv?.togglePlayPause()
+        _mpv.togglePlayPause()
     }
     
     public func showWindow() {
@@ -773,7 +795,7 @@ extension LeafPlayer: PlayerResolver {
         _urlToLoad = url
         DispatchQueue.global(qos: .utility).async {
             do {
-                try self._mpv?.loadfile(url: url)
+                try self._mpv.loadfile(url: url)
             } catch {
                 print("error:\(error)")
             }
@@ -784,9 +806,13 @@ extension LeafPlayer: PlayerResolver {
     }
     
     public func removeCurrentFileFromPlayList() {
-        _mpv?.stop()
-        _mpv?.removeCurrentFileFromPlayList()
+        _mpv.stop()
+        _mpv.removeCurrentFileFromPlayList()
         
+    }
+    
+    public func playChapter(at index: Int) {
+        _mpv.playChapter(at: index)
     }
 }
 

@@ -288,8 +288,9 @@ extension MPV {
             case .quit: total = ["quit"]
             case let .screenshot(mode): total = ["screenshot", "\(mode.rawValue)"]
             case let .seek(mode, value, extra):
-                total = ["seek", "\(mode.rawValue)", "\(value)"]
-                if let string = extra?.rawValue { total.append(string) }
+                total = ["seek", "\(value)"]
+                if let value = extra?.rawValue { total.append("\(mode.rawValue)+\(value)") }
+                else { total.append(mode.rawValue) }
             case let .set(property, value): total = ["set", "\(property.rawValue)", "\(value)"]
             case .stop: total = ["stop"]
             case let .subAdd(url): total = ["sub-add", "\(url.path)"]

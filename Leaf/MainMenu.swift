@@ -22,7 +22,7 @@ final class MainMenu: NSMenu {
     }
     
     private lazy var toggleItems: [DI.TogglableMenu] = {
-        let items: [DI.TogglableMenu] = [.fileMenu(.deleteCurrentFile), .fileMenu(.saveCurrentPlaylist), .playbackMenu(.playPause)]
+        let items: [DI.TogglableMenu] = [.fileMenu(.deleteCurrentFile), .fileMenu(.saveCurrentPlaylist), .playbackMenu(.playPause), .playbackMenu(.stopAndClearPlayerlist), .playbackMenu(.stepForwardFiveSecond), .playbackMenu(.stepBackwardFiveSecond), .playbackMenu(.jumpToBeginning)]
         return items
     }()
     
@@ -48,6 +48,7 @@ final class MainMenu: NSMenu {
         for (i, title) in titles.enumerated() {
             addItem(NSMenuItem())
             let menu = NSMenu(title: title)
+            menu.delegate = self
             items[i].submenu = menu
             switch i {
             case 0: setupAppMenu(menu)
@@ -141,19 +142,20 @@ final class MainMenu: NSMenu {
         let playlist = TogglableMenuItem(target: self, title: I18N.MainMenu.Playlist, action: .playlist)
         let playlistMenu = NSMenu(title: I18N.MainMenu.Playlist)
         menu.setSubmenu(playlistMenu, for: playlist)
-        playlistMenu.addItem(title: I18N.MainMenu.None, action: nil).state = .on
+        playlistMenu.defaultNoneItem()
         playlistMenu.delegate = self
         
         let showChaptersPanel = TogglableMenuItem(target: self, title: I18N.MainMenu.ShowChaptersPanel, action: .showChaptersPanel, keyEquivalent: Alphabet.c)
         let chapter = TogglableMenuItem(target: self, title: I18N.MainMenu.Chapter, action: .chapters)
         let chaptersMenu = NSMenu(title: I18N.MainMenu.Chapter)
         menu.setSubmenu(chaptersMenu, for: chapter)
-        chaptersMenu.addItem(title: I18N.MainMenu.None, action: nil).state = .on
+        chaptersMenu.defaultNoneItem()
         chaptersMenu.delegate = self
         
         let toAdd: [NSMenuItem] = [playPause, stopAndClearPlaylist, .separator(), stepForwardFives, stepBackwardFives, jumpToBeginning, jumpTo, .separator(), takeAScreenshot, goToScreenshotFolder, .separator(), abLoop, fileLoop, .separator(), showPlaylistPanel, playlistLoop, playlist, .separator(), showChaptersPanel, chapter]
         for item in toAdd { menu.addItem(item) }
         
+        _itemPool[.playbackMenu(.menu)] = DI.TogglableItemBox(menu: menu)
         _itemPool[.playbackMenu(.playPause)] = DI.TogglableItemBox(menuItem: playPause)
         _itemPool[.playbackMenu(.stopAndClearPlayerlist)] = DI.TogglableItemBox(menuItem: stopAndClearPlaylist)
         
@@ -422,12 +424,58 @@ extension MainMenu {
         }
         _itemPool[.playbackMenu(.playPause)]?.menuItem?.title = playPauseTitle
     }
+    
+    private func updatePlaylistMenu() {
+        // .playbackMenu(.playlist)
+        let playlistenu = _itemPool[.playbackMenu(.playlist)]?.menu
+        
+        if let playlist = playbackDelegate?.media?.playlist {
+            playlistenu?.removeAllItems()
+            
+            let index = playbackDelegate?.media?.playingListIndex ?? -1
+            for (i, item) in playlist.enumerated() {
+                let name = item.filenameForDisplay
+                let item = NSMenuItem(title: name, action: .selectedPlaylistItem, keyEquivalent: "")
+                if i == index { item.state = .on }
+                item.target = self
+                item.tag = i
+                playlistenu?.addItem(item)
+            }
+        } else {
+            playlistenu?.defaultNoneItem()
+        }
+    }
+    
+    private func updateChapterMenu() {
+        
+        // .playbackMenu(.chapters)
+        let chaptersMenu = _itemPool[.playbackMenu(.chapters)]?.menu
+        if let chapters = playbackDelegate?.media?.chapters {
+            chaptersMenu?.removeAllItems()
+            let index = playbackDelegate?.media?.playingChapterIndex ?? -1
+            for (i, item) in chapters.enumerated() {
+                let item = NSMenuItem(title: item.title, action: .selectedChapters, keyEquivalent: "")
+                item.target = self
+                item.tag = i
+                if i == index { item.state = .on }
+                chaptersMenu?.addItem(item)
+            }
+        } else {
+            chaptersMenu?.defaultNoneItem()
+        }
+    }
 }
 
 extension MainMenu: NSMenuDelegate {
     func menuWillOpen(_ menu: NSMenu) {
-        if menu == _itemPool[.audioMenu(.audioDevice)]?.menu {
-            
+        if menu == _itemPool[.playbackMenu(.menu)]?.menu {
+            updatePlayPauseButton()
+        }
+        if menu == _itemPool[.playbackMenu(.playlist)]?.menu {
+            updatePlaylistMenu()
+        }
+        if menu == _itemPool[.playbackMenu(.chapters)]?.menu {
+            updateChapterMenu()
         }
     }
 }
@@ -435,7 +483,7 @@ extension MainMenu: NSMenuDelegate {
 extension MainMenu: MainMenuResolver {
     
     func playingStateChanged() {
-        updatePlayPauseButton()
+        
     }
     
     func update(item: DI.TogglableMenu, instance: DI.TogglableItemBox?) {
@@ -516,16 +564,17 @@ extension MainMenu {
     }
     
     @objc fileprivate func stopAndClearPlaylist() {
-        // TODO: stopAndClearPlaylist
+        playbackDelegate?.stop()
+        playbackDelegate?.clearPlaylist()
     }
     @objc fileprivate func stepForwardFives() {
-        // TODO: stepForwardFives
+        playbackDelegate?.seekRelative(second: 5, extra: nil)
     }
     @objc fileprivate func stepBackwardFives() {
-        // TODO: stepBackwardFives
+        playbackDelegate?.seekRelative(second: -5, extra: nil)
     }
     @objc fileprivate func jumpToBeginning() {
-        // TODO: jumpToBeginning
+        playbackDelegate?.seekAbsolute(second: 0)
     }
     @objc fileprivate func jumpTo() {
         // TODO: jumpTo
@@ -551,11 +600,23 @@ extension MainMenu {
     @objc fileprivate func playlist() {
         // TODO: playlist
     }
+    @objc fileprivate func selectedPlaylistItem(sender: NSMenuItem) {
+        if sender.menu?.selectedItem.contains(sender) == true { return }
+        playbackDelegate?.playChapter(at: sender.tag)
+        sender.menu?.selectedItem.forEach { $0.state = .off }
+        sender.state = .on
+    }
     @objc fileprivate func showChaptersPanel() {
         // TODO: showChaptersPanel
     }
     @objc fileprivate func chapters() {
         // TODO: chapters
+    }
+    @objc fileprivate func selectedChapters(sender: NSMenuItem) {
+        if sender.menu?.selectedItem.contains(sender) == true { return }
+        playbackDelegate?.playChapter(at: sender.tag)
+        sender.menu?.selectedItem.forEach { $0.state = .off }
+        sender.state = .on
     }
     // MARK: Video
     @objc fileprivate func showVideoQuickSettingsPanel() {
@@ -765,8 +826,10 @@ private extension Selector {
     static let showPlaylistPanel    = #selector(MainMenu.showPlaylistPanel)
     static let playlistLoop         = #selector(MainMenu.playlistLoop)
     static let playlist             = #selector(MainMenu.playlist)
+    static let selectedPlaylistItem = #selector(MainMenu.selectedPlaylistItem(sender:))
     static let showChaptersPanel    = #selector(MainMenu.showChaptersPanel)
     static let chapters             = #selector(MainMenu.chapters)
+    static let selectedChapters     = #selector(MainMenu.selectedChapters(sender:))
     
     // Video
     static let showVideoQuickSettingsPanel  = #selector(MainMenu.showVideoQuickSettingsPanel)
@@ -967,6 +1030,14 @@ extension NSMenu {
         items.forEach { (item) in
             (item as? MainMenu.TogglableMenuItem)?.toggleTo(enabled: enabled)
         }
+    }
+    var selectedItem: [NSMenuItem] {
+        var selected: [NSMenuItem]  = []
+        for item in items {
+            guard item.state == .on else { continue }
+            selected.append(item)
+        }
+        return selected
     }
 }
 

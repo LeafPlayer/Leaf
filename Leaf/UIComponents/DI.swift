@@ -95,6 +95,7 @@ extension DI {
         
         public enum PlaybackItem: Int {
             static var max = PlaybackItem.selectedChapter.index + 1
+            case menu
             case playPause
             case stopAndClearPlayerlist
             case stepForwardFiveSecond
@@ -208,6 +209,7 @@ extension DI {
     public enum PlayerState {
         case loading
         case playing
+        case buffering
         case paused
         case stopped
         case error(String)
@@ -216,11 +218,24 @@ extension DI {
             switch self {
             case .error: rawValue = "error"
             case .loading: rawValue = "loading"
+            case .buffering: rawValue = "buffering"
             case .paused: rawValue = "paused"
             case .playing: rawValue = "playing"
             case .stopped: rawValue = "stopped"
             }
             return Notification.Name(rawValue: rawValue)
+        }
+        public var isPaused: Bool {
+            switch self {
+            case .paused: return true
+            default: return false
+            }
+        }
+        public var isPlaying: Bool {
+            switch self {
+            case .playing, .loading: return true
+            default: return false
+            }
         }
     }
     
@@ -240,6 +255,9 @@ extension DI {
         public lazy var isIdle = false
         public lazy var resourceType: ResourceType = .unknown
         public lazy var isNetworkResource = false
+        public lazy var playingListIndex = 0
+        public lazy var playingChapterIndex = 0
+        public lazy var isSeeking = false
         
         public lazy var playlist: [PlaylistItem] = []
         public lazy var chapters: [Chapter] = []
@@ -267,6 +285,14 @@ extension DI {
         public var thumbnailsReady = false
         public var thumbnailsProgress: Double = 0
         public var thumbnails: [FFThumbnail] = []
+        
+        public func increasePlayPos(to position: Double) {
+            if position < playPosition {
+                if isSeeking { playPosition = position }
+            } else {
+                playPosition = position
+            }
+        }
         
         public func getThumbnail(forSecond sec: Double) -> FFThumbnail? {
             guard !thumbnails.isEmpty else { return nil }
@@ -332,9 +358,7 @@ extension DI {
             
             /** Title or the real filename */
             public var filenameForDisplay: String {
-                get {
-                    return title ?? NSString(string: filename).lastPathComponent
-                }
+                return title ?? NSString(string: filename).lastPathComponent
             }
             
             public var isCurrent: Bool
@@ -355,16 +379,17 @@ extension DI {
         public final class Chapter: NSObject {
             
             private var privTitle: String?
-            var title: String {
-                get {
-                    return privTitle ?? "Chapter \(index)"
-                }
-            }
+            var title: String { return privTitle ?? "\(I18N.MainMenu.Chapter) \(index)" }
             public var time: Double
             public var index: Int
             
             public init(title: String?, startTime: Double, index: Int) {
-                self.privTitle = title
+                if var t = title?.trimmingCharacters(in: .whitespacesAndNewlines), t.hasPrefix("\"") == true, t.hasSuffix("\"") == true {
+                    t = String(t[t.index(t.startIndex, offsetBy: 1)..<t.index(t.endIndex, offsetBy: -1)])
+                    self.privTitle = t
+                } else {
+                    self.privTitle = title
+                }
                 self.time = startTime
                 self.index = index
             }
@@ -407,6 +432,18 @@ public protocol PlayerResolver: Reslovable {
     func togglePlayPause()
     
     func removeCurrentFileFromPlayList()
+    
+    func playChapter(at index: Int)
+    func playPlaylist(at index: Int)
+    var playingChapterIndex: Int? { get }
+    var playingListIndex: Int? { get }
+    
+    func stop()
+    func clearPlaylist()
+    
+    func seekRelative(second: Double, extra: MPV.Command.SeekModeExtra?)
+    func seekAbsolute(second: Double)
+    func seekPecentage(percent: Double, forceExact: Bool)
 }
 extension PlayerResolver { public static var resolveType: DI.ResloveType { return .player } }
 
